@@ -1,4 +1,6 @@
-# Art Exhibition App
+# Art Exhibition App | Frontend Repo
+
+[Link to Backend Repo](https://github.com/caitreid/projectThreeBackend)
 
 ## Description
 
