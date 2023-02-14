@@ -13,6 +13,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+// import IndexArtworks from './components/artworks/IndexArtworks'
+
 const App = () => {
 
   const [user, setUser] = useState(null)
