@@ -6,8 +6,6 @@ import axios from 'axios'
 // export const getAllArtworks = () => {
 //     return axios(`https://openaccess-api.clevelandart.org/api/artworks/?limit=5`)
 // }
-
-
 // export const getAllArtworks = () => {
 // 	return axios({
 // 		method: 'GET',
@@ -27,27 +25,23 @@ export const getAllArtworks = (keyword, skip, limit) => {
             limit: limit,
             has_image: 1
         };
-
-    const resp = axios(url, {params})
-        // .then((resp) => {
-        //     for (const artwork of resp.data.data) {
-        //         // const tombstone = artwork.tombstone;
-        //         const title = artwork.title;
-        //         const image = artwork.images.web.url;
-
-        //         console.log(`${title}\n${image}\n---`);
-        //     }
-        // })
+    return axios(url, {params})
+    // const resp = axios(url, {params})
         .then((resp) => {
-            console.log('resp.data', resp)
-        })
-    return resp
-    .catch((e) => {
-        console.log("ERROR getting artwork data");
-        console.log(e);
-    });
+            const artworks = resp.data.data.map((artwork) => ({
+            // for (const artwork of resp.data.data) {
+                //const tombstone = artwork.tombstone;
+                id: artwork.id,
+                title: artwork.title,
+                department: artwork.department,
+                type: artwork.type
+
+            }));
+            return { artworks };
+          })
+    .catch((error) => {
+        console.log("Error getting artworks", error);
+        throw error;
+      });
 }
-
-// export default getAllArtworks()
-
-getAllArtworks("monet", 0, 10);
+getAllArtworks("monet", 0, 5);
