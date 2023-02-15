@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const IndexDepartment = () => {
   // State to store the departments data
@@ -25,7 +26,7 @@ const IndexDepartment = () => {
       <h1>View Artworks</h1>
       <p>Search by Department</p>
       <ul>
-   
+   // Need to somehow display department images with their corresponding names, ex: Asian Art 
         {departments.slice(0, displayCount).map((department) => (
           <li key={department.departmentID}>{department.displayName}</li>
         ))}
