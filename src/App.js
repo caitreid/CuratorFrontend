@@ -13,7 +13,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import IndexDepartment from './components/department/IndexDepartment'
+
 
 // components
 import IndexArtworks from './components/artworks/IndexArtworks'

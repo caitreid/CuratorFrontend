@@ -2,7 +2,7 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const getAllDepartments = () => {
-    return axios (`${apiUrl}/departments`);
+    return axios(`${apiUrl}/departments`);
    
   };
   
