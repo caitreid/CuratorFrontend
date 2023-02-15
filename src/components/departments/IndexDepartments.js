@@ -38,20 +38,27 @@ if (!departments) {
   return <p>No departments yet, go add some!</p>
 }
 
-  const departmentCards =  departments.map(department => (
-    <Card key={ department.id }>
-        <Card.Header>
-            { department.name }
-        </Card.Header>
-
-
-    </Card>
+const departmentCards = departments.map(department => (
+  <Card key={department.id} style={{ backgroundImage: `url(${department.img})`, width: "250px" }}>
+    <Card.Header>
+      {department.name}
+    </Card.Header>
+  </Card>
 ))
-
-
-
+return (
+  <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(3, 1fr)",
+      gap: "1rem",
+      height: "100vh",
+      overflow: "scroll"
+    }}>
+    {departmentCards}
+  </div>
+)
 
   return (
+    
     <div>
       <h1>View Artworks</h1>
       <p>Search by Department</p>
@@ -72,6 +79,7 @@ if (!departments) {
       )} */}
 
     </div>
+    
   );
 };
 
