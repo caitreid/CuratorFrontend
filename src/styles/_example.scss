@@ -1,16 +1,27 @@
+// Taken from the documentation to override default Bootstrap styles
+// see https://getbootstrap.com/docs/5.0/customize/sass/
+
+// Make a copy of this partial to create new components, and import them to the top-level
+// styles.scss. Make sure you're running the script `sass --watch src/styles/styles.scss src/index.css` 
+// to compile your files.
+
+// ------------------------------------------------------
+
+// _example.scss
+
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+// 2. Include any default variable overrides here
+
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-// 2. Include any default variable overrides here
-// $body-color: rgb(221, 6, 6);
-$body-bg: rgba(241, 241, 241, 0.789);
-
 // 4. Include any optional Bootstrap components as you like
+// (Remove the ones you don't need)
 @import "../../node_modules/bootstrap/scss/root";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
@@ -19,3 +30,4 @@ $body-bg: rgba(241, 241, 241, 0.789);
 @import "../../node_modules/bootstrap/scss/grid";
 
 // 5. Add additional custom code here
+
