@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getAllDepartments } from '../../api/departments'
 import Card from 'react-bootstrap/Card'
 
-const IndexDepartment = () => {
+const IndexDepartment = (props) => {
   // State to store the departments data
   const [departments, setDepartments] = useState([]);
   
@@ -11,14 +11,14 @@ const IndexDepartment = () => {
   //const [displayCount, setDisplayCount] = useState(8);
 
   // Use effect to fetch the departments data from the API
-  useEffect(() => {
-    const fetchDepartments = async () => {
-      const data = await getAllDepartments();
-      setDepartments(data);
-    };
+//   useEffect(() => {
+//     const fetchDepartments = async () => {
+//       const data = await getAllDepartments();
+//       setDepartments(data);
+//     };
 
-    fetchDepartments();
-}, []); // Second argument of an empty array means this useEffect will only run once on component mount
+//     fetchDepartments();
+// }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
   // Function to handle the "handleAllArtworks" button click
  // const handleAllArtworks = () => {
