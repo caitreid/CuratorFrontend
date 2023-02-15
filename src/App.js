@@ -19,6 +19,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import IndexArtworks from './components/artworks/IndexArtworks'
 import IndexExhibitions from './components/exhibitions/IndexExhibitions'
 import IndexDepartments from './components/departments/IndexDepartments'
+import ShowDepartment from './components/departments/ShowDepartment'
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
@@ -57,6 +58,7 @@ const App = () => {
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route path='/exhibitions' element={ <IndexExhibitions />} />
 					<Route path='/departments' element={ <IndexDepartments />} />
+					<Route path='/departments/:id' element={ <ShowDepartment />} />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
 					
 					<Route
