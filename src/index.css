@@ -12494,5 +12494,13 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
+.footer {
+  height: 10rem;
+  display: flex;
+  align-items: end;
+  padding: 2rem;
+  position: relative;
+  bottom: 0;
+}
 
 /*# sourceMappingURL=index.css.map */
