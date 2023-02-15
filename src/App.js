@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
+import Footer from './components/shared/Footer'
 import RequireAuth from './components/shared/RequireAuth'
 import Home from './components/Home'
 import SignUp from './components/auth/SignUp'
@@ -13,6 +14,11 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexDepartment from './components/department/indexDepartment'
+
+// components
+import IndexArtworks from './components/artworks/IndexArtworks'
+import IndexExhibitions from './components/exhibitions/IndexExhibitions'
+import IndexDepartments from './components/departments/IndexDepartments'
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
@@ -23,6 +29,7 @@ const App = () => {
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
+  
   const clearUser = () => {
     console.log('clear user ran')
     setUser(null)
@@ -48,6 +55,10 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+					<Route path='/exhibitions' element={ <IndexExhibitions />} />
+					<Route path='/departments' element={ <IndexDepartments />} />
+					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
+					
 					<Route
 						path='/sign-up'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
@@ -56,21 +67,22 @@ const App = () => {
 						path='/sign-in'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
-          <Route
-            path='/sign-out'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path='/change-password'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
+					
+					<Route
+						path='/sign-out'
+						element={
+						<RequireAuth user={user}>
+							<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>
+						}
+					/>
+					<Route
+						path='/change-password'
+						element={
+						<RequireAuth user={user}>
+							<ChangePassword msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
@@ -82,6 +94,7 @@ const App = () => {
 						deleteAlert={deleteAlert}
 					/>
 				))}
+				<Footer />
 			</Fragment>
 		)
 }
