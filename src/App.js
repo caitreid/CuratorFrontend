@@ -19,6 +19,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import IndexArtworks from './components/artworks/IndexArtworks'
 import IndexExhibitions from './components/exhibitions/IndexExhibitions'
 import IndexDepartments from './components/departments/IndexDepartments'
+import CreateExhibition from './components/exhibitions/CreateExhibition'
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
@@ -68,6 +69,14 @@ const App = () => {
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					
+					<Route
+						path='/create-exhibition'
+						element={
+						<RequireAuth user={user}>
+							<CreateExhibition user={user} />
+						</RequireAuth>
+						}
+					/>
 					<Route
 						path='/sign-out'
 						element={

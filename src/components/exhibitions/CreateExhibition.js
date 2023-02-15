@@ -2,14 +2,15 @@ import React, { useState } from "react"
 import ExhibitionForm from '../shared/ExhibitionForm'
 import { useNavigate } from 'react-router-dom'
 import { createExhibition } from '../../api/exhibition'
+import messages from '../shared/AutoDismissAlert/messages'
 
 
 const CreateExhibition = (props) => {
-    const { user } = props
+    const { user, msgAlert } = props
     const navigate = useNavigate()
     console.log('this is navigate ', navigate)
 
-    const [exhbition, setExhibition] = useState({
+    const [exhibition, setExhibition] = useState({
         title: '',
         description: '',
         startDate: '',
@@ -40,7 +41,7 @@ const CreateExhibition = (props) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        createExhibition(user, exhbition)
+        createExhibition(user, exhibition)
             .then(res => { navigate(`/exhibitions/${ res.data.exhibition.id }`)})
             .then(() => {
                 msgAlert({
@@ -60,7 +61,7 @@ const CreateExhibition = (props) => {
 
     return (
         <ExhibitionForm
-            exhbition={exhibition}
+            exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
             heading="Create a New Exhibition!"
