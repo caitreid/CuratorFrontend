@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getAllDepartments } from '../../api/departments'
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom';
 
 const IndexDepartment = (props) => {
   // State to store the departments data
@@ -43,6 +44,9 @@ const departmentCards = departments.map(department => (
     <Card.Header>
       {department.name}
     </Card.Header>
+    <Card.Footer>
+      <Link to={`/departments/${department._id}`} className="btn btn-success">View { department.name }</Link>
+    </Card.Footer>
   </Card>
 ))
 return (
