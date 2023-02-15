@@ -1,44 +1,47 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+	margin: '0 .5rem'
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='sign-out' style={linkStyle}>
-				Sign Out
-			</Link>
-		</Nav.Link>
+		<NavLink to='change-password' style={linkStyle}>
+			Change Password
+		</NavLink>
+		<NavLink to='sign-out' style={linkStyle}>
+			Sign Out
+		</NavLink>
 	</>
 )
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Link>
-		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
-        </Nav.Link>
-        <Nav.Link>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
-        </Nav.Link>
+        <NavLink to='sign-up' style={linkStyle}>
+			Sign Up
+        </NavLink>
+        <NavLink to='sign-in' style={linkStyle}>
+			Sign In
+        </NavLink>
 	</>
 )
 
 const alwaysOptions = (
 	<>
-		<Nav.Link>
-			<Link to='/' style={linkStyle}>
-				Home
-			</Link>
-		</Nav.Link>
+		<NavLink to='/exhibitions' style={linkStyle}>
+			Exhibitions
+		</NavLink>
+		<NavLink to='/departments' style={linkStyle}>
+			Departments
+		</NavLink>
+		{/* For testing purposes, link to Artworks*/}
+		<NavLink to='/artworks' style={linkStyle}>
+			Artworks
+		</NavLink>
 	</>
 )
 
