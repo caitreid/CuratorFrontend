@@ -14,6 +14,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexDepartment from './components/department/indexDepartment'
 
+// import IndexArtworks from './components/artworks/IndexArtworks'
+
 const App = () => {
 
   const [user, setUser] = useState(null)
