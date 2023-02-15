@@ -12499,7 +12499,7 @@ progress {
   display: flex;
   align-items: end;
   padding: 2rem;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 
