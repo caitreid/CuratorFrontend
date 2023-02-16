@@ -5,17 +5,23 @@ import { createExhibition } from '../../api/exhibition'
 import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
 
 
-const CreateExhibition = (props) => {
+// on this page , we'll need to 
+// bring in exhibition information from the previous page (create exhibition) like the title , description , start/end dates, and the chosen image for the exhibition
+// render artwork under that, much like the index page
+// make the artwork clickable or have a plus/add/favorite type button on each one
+// if the user clicks on that, we pass that data to the database and add it to that EXHIBITION ID one by one
+// a finish or submit button for once the user is done adding art, that should take the user to their SHOW ONE EXHIBITION page i think, which shows the exhibition they just built
+
+
+
+const addArtToExhibition = (props) => {
     const { user, msgAlert } = props
     const navigate = useNavigate()
     console.log('this is navigate ', navigate)
 
     const [exhibition, setExhibition] = useState({
-        title: '',
-        description: '',
-        startDate: '',
-        endDate: '',
-        img: ''
+        // use empty string or empty array?
+        artworks: []
     })
     //const [startDate, setStartDate] = useState(new Date());
 
@@ -25,9 +31,6 @@ const CreateExhibition = (props) => {
         setExhibition(prevExhibition => {
             const updatedName = e.target.name
             let updatedValue = e.target.value
-
-            // we possibly need to tackle user entry here on DATES
-            // using a calendar picker would be ideal to eliminate errors
 
             const updatedExhibition = {
                 [updatedName] :  updatedValue
@@ -41,10 +44,9 @@ const CreateExhibition = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-
+        /// this is not a create new exhibition, this is more of an update or adding to it
         createExhibition(user, exhibition)
-            // should go to an ADD ARTWORKS PAGE next so that the user can add art to this exhibition id
-            // probably /exhibtions/exhibitionID/addArt
+            //this should be ok, taking you to a SHOW ONE exhibition page
             .then(res => { navigate(`/exhibitions/${ res.data.exhibition.id }`)})
             .then(() => {
                 msgAlert({
@@ -63,7 +65,7 @@ const CreateExhibition = (props) => {
     }
 
     return (
-        <ExhibitionForm
+        <AddArtworkForm 
             exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
@@ -72,4 +74,4 @@ const CreateExhibition = (props) => {
     )
 }
 
-export default CreateExhibition
+export default addArtToExhibition

@@ -1,23 +1,19 @@
 import React, { useState } from "react"
 import ExhibitionForm from '../shared/ExhibitionForm'
-import { useNavigate } from 'react-router-dom'
-import { createExhibition } from '../../api/exhibition'
-import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
+import { editExhibitionSuccess, editExhibitionFailure } from '../shared/AutoDismissAlert/messages'
 
 
-const CreateExhibition = (props) => {
-    const { user, msgAlert } = props
-    const navigate = useNavigate()
-    console.log('this is navigate ', navigate)
+// import { useNavigate } from 'react-router-dom'
+// import { createExhibition } from '../../api/exhibition'
 
-    const [exhibition, setExhibition] = useState({
-        title: '',
-        description: '',
-        startDate: '',
-        endDate: '',
-        img: ''
-    })
-    //const [startDate, setStartDate] = useState(new Date());
+
+const EditExhibition = (props) => {
+    const { user, updateExhibition, triggerRefresh, msgAlert } = props
+
+    const [exhibition, setExhibition] = useState(props.exhibition)
+
+    // where is this going to render?  we said we'd put it on the USER EXHIBITION INDEX page
+    // so we need to build a button there that will handle all of the changes there.
 
     const onChange = (e) => {
         e.persist()
@@ -26,6 +22,8 @@ const CreateExhibition = (props) => {
             const updatedName = e.target.name
             let updatedValue = e.target.value
 
+            console.log('this is the previous exhibition ', updatedName)
+            console.log('this is the updated exhibition ', updatedValue)
             // we possibly need to tackle user entry here on DATES
             // using a calendar picker would be ideal to eliminate errors
 
@@ -42,21 +40,20 @@ const CreateExhibition = (props) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        createExhibition(user, exhibition)
-            // should go to an ADD ARTWORKS PAGE next so that the user can add art to this exhibition id
-            // probably /exhibtions/exhibitionID/addArt
-            .then(res => { navigate(`/exhibitions/${ res.data.exhibition.id }`)})
+        updateExhibition(user, exhibition)
+            //where does user go after hitting the button? i think just back to THEIR exhibition index page
+            .then(res => { navigate(`/exhibitions/`)})
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
-                    message: createExhibitionSuccess,
+                    message: editExhibitionSuccess,
                     variant: 'success'
                 })
             })
             .catch(() => {
                 msgAlert({
                     heading: 'Uh oh!',
-                    message: createExhibitionFailure,
+                    message: editExhibitionFailure,
                     variant: 'danger'
                 })
             })
@@ -67,9 +64,9 @@ const CreateExhibition = (props) => {
             exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
-            heading="Create a New Exhibition!"
+            heading="Update your Exhibition!"
         />
     )
 }
 
-export default CreateExhibition
+export default EditExhibition

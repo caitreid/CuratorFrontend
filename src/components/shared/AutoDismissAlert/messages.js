@@ -7,7 +7,11 @@ const messages = {
 	changePasswordSuccess: 'Password changed successfully!',
 	changePasswordFailure:'Failed to change passwords. Check your old password and try again.',
 	createExhibitionSuccess: 'Nice! You successfully created your exhibition',
-	createExhibitionFailure: 'Sorry, something went wrong and your exhibtion was not created'
+	createExhibitionFailure: 'Sorry, something went wrong and your exhibtion was not created',
+	editExhibitionSuccess: 'Nice! You successfully updated your exhibition',
+	editExhibitionFailure: 'Sorry, something went wrong and your exhibtion was not updated',
+	addArtworkSuccess: 'Nice! You successfully added Artwork to your exhibition',
+	addArtworkFailure: 'Sorry, something went wrong and you did not add any Artwork'
 }
 
 module.exports = messages

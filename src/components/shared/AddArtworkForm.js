@@ -1,8 +1,5 @@
 import { Form, Button, Container } from 'react-bootstrap'
 
-// import this later at end of MVP. needs formating and other additions to make it look good. 
-// without that its just a bunch of crazy text on the screen , calendar data
-//import DatePicker from 'react-datepicker'
 
 
 const ExhibitionForm = (props) => {

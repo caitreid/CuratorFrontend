@@ -8,6 +8,7 @@ export const getAllExhibition = async () => {
    
   };
   
+// READ -- show My exhibitions page?
 
 // READ -- show ONE artwork page?
 
@@ -26,4 +27,31 @@ export const createExhibition = (user, newExhibition) => {
         },
         data: { exhibition: newExhibition}
     })
+}
+
+// UPDATE - update a current user's exhibition
+
+export const updateExhibition = (user, updatedExhibition) => {
+  return axios({
+    // not sure if this is dot ID or not
+    url: `${apiUrl}/exhibitions/${updatedExhibition.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${user.token}`
+    },
+    data: { exhibition: updatedExhibition }
+  })
+}
+
+// DELETE - delete an exhibition 
+// Need a button on the index exhibition page
+
+export const removeExhibition = (user, exhibitionId) => {
+  return axios({
+    url: `${apiUrl}/exhibitions/${exhibitionId}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${user.token}`
+    }
+  })
 }
