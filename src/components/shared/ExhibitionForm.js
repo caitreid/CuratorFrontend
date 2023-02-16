@@ -12,7 +12,7 @@ const ExhibitionForm = (props) => {
         <Container className='justify-content-center'>
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Title:
                     </Form.Label>
@@ -24,7 +24,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Description:
                     </Form.Label>
@@ -36,7 +36,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Start Date:
                     </Form.Label>
@@ -50,7 +50,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         End Date:
                     </Form.Label>
@@ -62,7 +62,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Image:
                     </Form.Label>
@@ -75,6 +75,7 @@ const ExhibitionForm = (props) => {
                     />
                 </Form.Group>
                 <Button 
+                    exhibition={exhibition}
                     className='m-2' 
                     type='submit'>
                         Submit and ADD Artwork

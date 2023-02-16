@@ -1,6 +1,9 @@
 //import ArtworksIndex from './artworks/IndexArtworks'
 //import Container from 'react-bootstrap/Container'
-import { Form, Button, Container, Card } from 'react-bootstrap'
+import { Button, Container, Card } from 'react-bootstrap'
+//import { useState } from 'react'
+
+
 
 // need button for submit button
 // do we need form?
@@ -8,7 +11,9 @@ import { Form, Button, Container, Card } from 'react-bootstrap'
 
 const ChooseArtworks = (props) => {
 	// const { msgAlert, user } = props
-	console.log('props in home', props)
+	//console.log('props in home', props)
+    const { exhibition } = props
+    console.log('this is the prop ', exhibition)
 
 	return (
         <Container className="m-2" style={{textAlign: 'center'}}>
@@ -16,21 +21,21 @@ const ChooseArtworks = (props) => {
 
             {/* maybe style this with bg image */}
         <Card 
-        // key={ exhibition.id }
+        key={ exhibition.id }
          >
             <Card.Header>
-                {/* { exhibiton.title  } */}
+                { exhibition.title  }
                 </Card.Header>
             <Card.Body>
                 <Card.Text>
                     <p>Description:
-                         {/* { exhibiton.description } */}
+                         { exhibition.description }
                          </p>
                     <p>Start Date:
-                         {/* { exhibiton.startDate } */}
+                         {/* { exhibition.startDate } */}
                          </p>
                     <p>End Date: 
-                        {/* { exhibiton.endDate } */}
+                        {/* { exhibition.endDate } */}
                     </p>
                     {/* <p>Image: default image</p> */}
                 </Card.Text>

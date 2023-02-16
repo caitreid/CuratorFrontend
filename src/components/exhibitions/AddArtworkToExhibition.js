@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-
 import { useNavigate } from 'react-router-dom'
 import { updateExhibition } from '../../api/exhibition'
 import { addArtworkSuccess, addArtworkFailure } from '../shared/AutoDismissAlert/messages'
 import AddArtworkForm from '../shared/AddArtworkForm'
+import IndexArtworks from "../artworks/IndexArtworks"
 
 
 // on this page , we'll need to 
@@ -17,7 +17,7 @@ import AddArtworkForm from '../shared/AddArtworkForm'
 const AddArtworkToExhibition = (props) => {
     const { user, msgAlert, updateExhibition } = props
     const navigate = useNavigate()
-    console.log('this is navigate ', navigate)
+    //console.log('this is navigate ', navigate)
 
     const [exhibition, setExhibition] = useState({
         // use empty string or empty array?
@@ -66,12 +66,16 @@ const AddArtworkToExhibition = (props) => {
     }
     
     return (
+        <>
+        
         <AddArtworkForm 
             exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
             heading="Add Artwork to your Exhibition!"
         />
+        <IndexArtworks/>
+        </>
     )
 }
 

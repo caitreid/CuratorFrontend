@@ -8,7 +8,7 @@ import { createExhibitionSuccess, createExhibitionFailure } from '../shared/Auto
 const CreateExhibition = (props) => {
     const { user, msgAlert } = props
     const navigate = useNavigate()
-    console.log('this is navigate ', navigate)
+    //console.log('this is navigate ', navigate)
 
     const [exhibition, setExhibition] = useState({
         title: '',
@@ -41,11 +41,13 @@ const CreateExhibition = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        
 
         createExhibition(user, exhibition)
             // should go to an ADD ARTWORKS PAGE next so that the user can add art to this exhibition id
             // probably /exhibtions/exhibitionID/addArt
-            .then(res => { navigate(`/exhibitions/${ res.data.exhibition.id }`)})
+            // fix later 
+            .then(res => { navigate(`/exhibitions/add-artworks`)})
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',

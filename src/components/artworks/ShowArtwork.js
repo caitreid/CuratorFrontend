@@ -5,11 +5,11 @@ import React, { useEffect, useState } from "react"
 import { getArtworks } from "../../api/artworks"
 import { useParams } from 'react-router-dom'
 
-const cardContainerStyle = {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center'
-}
+// const cardContainerStyle = {
+//     display: 'flex',
+//     flexFlow: 'row wrap',
+//     justifyContent: 'center'
+// }
 
 const ShowArtwork = (props) => {
 
