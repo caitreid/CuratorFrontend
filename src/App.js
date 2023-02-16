@@ -20,6 +20,7 @@ import IndexArtworks from './components/artworks/IndexArtworks'
 import IndexExhibitions from './components/exhibitions/IndexExhibition'
 import IndexDepartments from './components/departments/IndexDepartments'
 import CreateExhibition from './components/exhibitions/CreateExhibition'
+import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibition'
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
@@ -74,6 +75,14 @@ const App = () => {
 						element={
 						<RequireAuth user={user}>
 							<CreateExhibition msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+						}
+					/>
+					<Route
+						path='/add-artworks'
+						element={
+						<RequireAuth user={user}>
+							<AddArtworkToExhibition msgAlert={msgAlert} user={user} />
 						</RequireAuth>
 						}
 					/>

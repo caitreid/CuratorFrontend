@@ -67,4 +67,4 @@ const IndexArtworks = (props) => {
 
 }
 
-export default IndexArtworks;
+export default IndexArtworks

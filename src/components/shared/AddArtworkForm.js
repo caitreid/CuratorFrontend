@@ -1,86 +1,52 @@
-import { Form, Button, Container } from 'react-bootstrap'
+//import ArtworksIndex from './artworks/IndexArtworks'
+//import Container from 'react-bootstrap/Container'
+import { Form, Button, Container, Card } from 'react-bootstrap'
 
+// need button for submit button
+// do we need form?
+// need to bring in data from the exhibition that was just started
 
+const ChooseArtworks = (props) => {
+	// const { msgAlert, user } = props
+	console.log('props in home', props)
 
-const ExhibitionForm = (props) => {
-    const { exhibition, handleChange, handleSubmit, heading } = props
+	return (
+        <Container className="m-2" style={{textAlign: 'center'}}>
+            <h2>Add Artwork to your Exhibition</h2>
+
+            {/* maybe style this with bg image */}
+        <Card 
+        // key={ exhibition.id }
+         >
+            <Card.Header>
+                {/* { exhibiton.title  } */}
+                </Card.Header>
+            <Card.Body>
+                <Card.Text>
+                    <p>Description:
+                         {/* { exhibiton.description } */}
+                         </p>
+                    <p>Start Date:
+                         {/* { exhibiton.startDate } */}
+                         </p>
+                    <p>End Date: 
+                        {/* { exhibiton.endDate } */}
+                    </p>
+                    {/* <p>Image: default image</p> */}
+                </Card.Text>
+            </Card.Body>
+        </Card>
+        
+        <Button 
+            className='m-2' 
+            type='submit'>
+                Submit and ADD Artwork
+        </Button>
     
-    return (
-        <Container className='justify-content-center'>
-            <h3>{heading}</h3>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group classname='m-2'>
-                    <Form.Label>
-                        Title:
-                    </Form.Label>
-                    <Form.Control
-                        placeholder="What is the name of your Exhibition?"
-                        name="title"
-                        id="title"
-                        value= { exhibition.title }
-                        onChange={handleChange}                        
-                    />
-                </Form.Group>
-                <Form.Group classname='m-2'>
-                    <Form.Label>
-                        Description:
-                    </Form.Label>
-                    <Form.Control
-                        placeholder="What is the description of your Exhibition?"
-                        name="description"
-                        id="description"
-                        value= { exhibition.description }
-                        onChange={handleChange}                        
-                    />
-                </Form.Group>
-                <Form.Group classname='m-2'>
-                    <Form.Label>
-                        Start Date:
-                    </Form.Label>
-                    {/* <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} /> */}
-                    <Form.Control
-
-                        placeholder="When does your Exhibition start?"
-                        name="startDate"
-                        id="startDate"
-                        value= { exhibition.startDate }
-                        onChange={handleChange}                        
-                    />
-                </Form.Group>
-                <Form.Group classname='m-2'>
-                    <Form.Label>
-                        End Date:
-                    </Form.Label>
-                    <Form.Control
-                        placeholder="When does your Exhibition end?"
-                        name="endDate"
-                        id="endDate"
-                        value= { exhibition.endDate }
-                        onChange={handleChange}                        
-                    />
-                </Form.Group>
-                <Form.Group classname='m-2'>
-                    <Form.Label>
-                        Image:
-                    </Form.Label>
-                    <Form.Control
-                        placeholder="What is your Exhibitions main image?"
-                        name="img"
-                        id="img"
-                        value= { exhibition.img }
-                        onChange={handleChange}                        
-                    />
-                </Form.Group>
-                <Button 
-                    className='m-2' 
-                    type='submit'>
-                        Submit and ADD Artwork
-                 </Button>
-
-            </Form>
-
-        </Container>    
-    )
+    
+			{/* <ArtworksIndex msgAlert={ props.msgAlert } /> */}
+		</ Container>
+	)
 }
 
-export default ExhibitionForm
+export default ChooseArtworks

@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import ExhibitionForm from '../shared/ExhibitionForm'
+
 import { useNavigate } from 'react-router-dom'
-import { createExhibition } from '../../api/exhibition'
-import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
+import { updateExhibition } from '../../api/exhibition'
+import { addArtworkSuccess, addArtworkFailure } from '../shared/AutoDismissAlert/messages'
+import AddArtworkForm from '../shared/AddArtworkForm'
 
 
 // on this page , we'll need to 
@@ -13,9 +14,8 @@ import { createExhibitionSuccess, createExhibitionFailure } from '../shared/Auto
 // a finish or submit button for once the user is done adding art, that should take the user to their SHOW ONE EXHIBITION page i think, which shows the exhibition they just built
 
 
-
-const addArtToExhibition = (props) => {
-    const { user, msgAlert } = props
+const AddArtworkToExhibition = (props) => {
+    const { user, msgAlert, updateExhibition } = props
     const navigate = useNavigate()
     console.log('this is navigate ', navigate)
 
@@ -23,7 +23,8 @@ const addArtToExhibition = (props) => {
         // use empty string or empty array?
         artworks: []
     })
-    //const [startDate, setStartDate] = useState(new Date());
+
+    
 
     const onChange = (e) => {
         e.persist()
@@ -45,33 +46,35 @@ const addArtToExhibition = (props) => {
     const onSubmit = (e) => {
         e.preventDefault()
         /// this is not a create new exhibition, this is more of an update or adding to it
-        createExhibition(user, exhibition)
+        updateExhibition(user, exhibition)
             //this should be ok, taking you to a SHOW ONE exhibition page
             .then(res => { navigate(`/exhibitions/${ res.data.exhibition.id }`)})
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
-                    message: createExhibitionSuccess,
+                    message: addArtworkSuccess,
                     variant: 'success'
                 })
             })
             .catch(() => {
                 msgAlert({
                     heading: 'Uh oh!',
-                    message: createExhibitionFailure,
+                    message: addArtworkFailure,
                     variant: 'danger'
                 })
             })
     }
-
+    
     return (
         <AddArtworkForm 
             exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
-            heading="Create a New Exhibition!"
+            heading="Add Artwork to your Exhibition!"
         />
     )
 }
 
-export default addArtToExhibition
+/// from the index page, need some of this code but not all
+
+export default AddArtworkToExhibition

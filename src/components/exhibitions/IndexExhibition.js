@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
+import IndexArtworks from '../artworks/IndexArtworks';
 
 const IndexExhibition = (props) => {
   // State to store the departments data
@@ -200,4 +201,4 @@ return (
   };
  
 
-export default IndexExhibition;
+export default IndexExhibition
