@@ -45,16 +45,24 @@ const IndexArtworks = (props) => {
     }
 
     const artworkCards = artworks.map((artwork) => (
-        <Card key={ artwork.id } style={{ backgroundImage: `url(${artwork.img})`, width: '30%', margin: 5 }}>
-            <Card.Header>{ artwork.title }</Card.Header>
-            <Card.Body>
-                <Card.Text>
-                    <p>Department: { artwork.department }</p>
-                    <p>Type: { artwork.type }</p>
-                </Card.Text>
+        // <Card key={ artwork.id } style={{ backgroundImage: `url(${artwork.img})`, width: '30%', margin: 5 }}>
+        //     <Card.Header>{ artwork.title }</Card.Header>
+        //     <Card.Body>
+        //         <Card.Text>
+        //             <p>Department: { artwork.department }</p>
+        //             <p>Type: { artwork.type }</p>
+        //         </Card.Text>
                 
-            </Card.Body>
-        </Card>
+        //     </Card.Body>
+        // </Card>
+
+        <div className="artwork artwork__card" key={ artwork.id }>
+            <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div>
+            <div className="artwork__text">
+                <p className="artwork__text--title">{ artwork.title }</p>
+                <p>{ artwork.department }</p>
+            </div>
+        </div>
     ))
 
 

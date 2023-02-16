@@ -1,0 +1,25 @@
+.artwork {
+    &__card {
+        margin: 1rem;
+        max-width: 15rem;
+    }
+    &__image {
+        height: 20rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        
+    }
+    &__text {
+        margin: 1rem 0;
+        text-align: left;
+        line-height: 1rem;
+        &--title {
+            font-weight: bold;
+        }
+        p + p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
