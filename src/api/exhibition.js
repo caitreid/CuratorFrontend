@@ -2,11 +2,11 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 
-// READ --  index page
-export const getAllExhibition = async () => {
-    return axios (`${apiUrl}/exhibition`);
-   
-  };
+export const getAllExhibitions = () => {
+    return axios(`${apiUrl}/exhibitions`);
+
+};
+
   
 // READ -- show My exhibitions page?
 
