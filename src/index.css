@@ -12503,4 +12503,23 @@ progress {
   bottom: 0;
 }
 
+.artwork__card {
+  margin: 1rem;
+  max-width: 15rem;
+}
+.artwork__image {
+  height: 20rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.artwork__text {
+  margin: 1rem 0;
+  text-align: left;
+  line-height: 1rem;
+}
+.artwork__text--title {
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=index.css.map */

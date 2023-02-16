@@ -1,12 +1,13 @@
 // import apiUrl from '../apiConfig'
-import apiArtUrl from '../apiConfigArt'
+// import apiArtUrl from '../apiConfigArt'
 import axios from 'axios'
 
 // READ -> Index
 
-export const getAllArtworks = (limit) => {
+export const getArtworks = (limit, id) => {
     const url = `https://openaccess-api.clevelandart.org/api/artworks`
     const params = {
+            id: id,
             limit: limit,
             has_image: 1
         };
