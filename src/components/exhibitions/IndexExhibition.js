@@ -38,19 +38,124 @@ if (!exhibitions) {
   return <p>No exhibitions yet, go add some!</p>
 }
 
-const exhibitionCards = exhibitions.map(exhibition => (
-  <Card key={exhibition.id} style={{ backgroundImage: `url(${exhibition.img})`, width: "250px" }}>
-    <Card.Header>
+const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
+  <Card
+  key={exhibition.id}
+  style={{
+    background: "#fff",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+    borderRadius: "10px",
+    overflow: "hidden",
+    position: "relative"
+  }}
+>
+  <div
+    style={{
+      backgroundImage: `url(${exhibition.img})`,
+      backgroundSize: "cover",
+      height: "200px"
+    }}
+  />
+  <div
+    style={{
+      padding: "20px",
+      height: "100%",
+      position: "relative"
+    }}
+  >
+    <h2
+      style={{
+        fontWeight: "bold",
+        fontSize: "18px",
+        marginBottom: "10px",
+        color: "#000"
+      }}
+    >
       {exhibition.title}
-    </Card.Header>
-    <Card.Body>
-      <p>Start Date: {exhibition.startDate}</p>
-      <p>End Date: {exhibition.endDate}</p>
-    </Card.Body>
-  </Card>
-))
-console.log('cards are not showing', exhibitionCards)
+    </h2>
+    <div
+      style={{
+        position: "absolute",
+        bottom: "20px",
+        left: "20px",
+        color: "#000",
+        fontSize: "14px",
+        fontWeight: "bold",
+        display: "flex",
+        alignItems: "center"
+      }}
+    >
+      <div style={{ marginRight: "10px" }}>
+      </div>
+      <div>
+        <div>{exhibition.startDate}</div>
+        <div>{exhibition.endDate}</div>
+      </div>
+    </div>
+  </div>
+</Card>
 
+));
+
+
+const exhibitionCardsBottom = exhibitions.slice(2, 5).map((exhibition, index) => (
+  <Card
+  key={exhibition.id}
+  style={{
+    background: "#fff",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+    borderRadius: "10px",
+    overflow: "hidden",
+    position: "relative"
+  }}
+>
+  <div
+    style={{
+      backgroundImage: `url(${exhibition.img})`,
+      backgroundSize: "cover",
+      height: "200px"
+    }}
+  />
+  <div
+    style={{
+      padding: "20px",
+      height: "100%",
+      position: "relative"
+    }}
+  >
+    <h2
+      style={{
+        fontWeight: "bold",
+        fontSize: "18px",
+        marginBottom: "10px",
+        color: "#000"
+      }}
+    >
+      {exhibition.title}
+    </h2>
+    <div
+      style={{
+        position: "absolute",
+        bottom: "20px",
+        left: "20px",
+        color: "#000",
+        fontSize: "14px",
+        fontWeight: "bold",
+        display: "flex",
+        alignItems: "center"
+      }}
+    >
+      <div style={{ marginRight: "10px" }}>
+      </div>
+      <div>
+        <div>{exhibition.startDate}</div>
+        <div>{exhibition.endDate}</div>
+      </div>
+    </div>
+  </div>
+</Card>
+
+));
 
 return (
   <div>
@@ -59,16 +164,34 @@ return (
     </div>
     <div style={{
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: "repeat(3, 1r)",
       gap: "1rem",
-      height: "100vh",
-      overflow: "scroll"
+      //height: "100vh",
+      overflow: "scroll",
+      justifyContent: "center"
     }}>
-      {exhibitionCards}
-    </div>
-  </div>
+      <div style={{ gridRow: "1", gridColumn: "3 / span 1" }}>
+        {exhibitionCardsTop[1]}
+       </div>
+      <div style={{ gridRow: "1", gridColumn: "2 / span 1" }}>
+        {exhibitionCardsTop[0]}
+      </div>
+      <div style={{ gridRow: "2", gridColumn: "1" }}>
+        {exhibitionCardsBottom[0]}
+      </div>
+      <div style={{ gridRow: "2", gridColumn: "2" }}>
+        {exhibitionCardsBottom[1]}
+      </div>
+      <div style={{ gridRow: "2", gridColumn: "3" }}>
+        {exhibitionCardsBottom[2]}
+      </div>
+      <div style={{ gridRow: "3", gridColumn: "1" }}>
+        {exhibitionCardsBottom[3]}
+      </div>
+      </div>
+      </div>
+      
 )
-
   };
 
 export default IndexExhibition;
