@@ -70,9 +70,16 @@ const ShowArtwork = (props) => {
         //     </div>
         // })
         artworkItem = artwork.map(item => 
-            <div>
-                <p>{ item.id }</p>
+            <div key={ item.id }>
+                <div className="artwork__image" style={{ backgroundImage: `url(${ item.img })`}}></div>
+                <div>
+                    <p className="artwork__text--title">{ item.title }</p>
+                    <p>{ item.date }</p>
+                    <p>{ item.department }</p>
+                    <p>{ item.desc }</p>
+                </div>
             </div>
+            
             
         )
     }
@@ -86,12 +93,13 @@ const ShowArtwork = (props) => {
         //     {/* { artworkItem } */}
         //     <p className="artwork__text--title">{ artwork.map(item => <p>{item.title}</p>) }</p>
         // </div>
-        <>
+        <div className="container-md m-4">
             <h1> Artwork </h1>
+            
             <div>
                 { artworkItem }
             </div>
-        </>
+        </div>
     )
 
 }
