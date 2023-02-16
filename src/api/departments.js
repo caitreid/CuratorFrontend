@@ -20,7 +20,7 @@ export const getOneDepartmentArtworks = async(limit, name) => {
     const params = {
       department: `${name}`,
       limit: limit,
-        has_image: 1
+      has_image: 1
     }
   return await axios(url, {params})
     .then((resp) => {

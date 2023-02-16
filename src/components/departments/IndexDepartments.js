@@ -78,28 +78,28 @@ return (
     </div>
   </div>
 )
-  };
+};
 
 
-  return (
-    <div>
-      <h1>View Artworks</h1>
-      <p>Search by Department</p>
-       {departmentCards}
+  // return (
+  //   <div>
+  //     <h1>View Artworks</h1>
+  //     <p>Search by Department</p>
+  //      {departmentCards}
 
-      {/* <ul>
-   // Need to somehow display department images with their corresponding names, ex: Asian Art 
-        {departments.slice(0, displayCount).map((department) => (
-          <li key={department.departmentID}>{department.displayName}</li>
-        ))}
-      </ul>
+  //     {/* <ul>
+  //  // Need to somehow display department images with their corresponding names, ex: Asian Art 
+  //       {departments.slice(0, displayCount).map((department) => (
+  //         <li key={department.departmentID}>{department.displayName}</li>
+  //       ))}
+  //     </ul>
 
-      {displayCount < departments.length && (
-        <button onClick={handleAllArtworks}>See All Artworks</button>
-      )} */}
-    </div>
-  )
-}
+  //     {displayCount < departments.length && (
+  //       <button onClick={handleAllArtworks}>See All Artworks</button>
+  //     )} */}
+  //   </div>
+  // )
+// }
 
 
 //   return (
