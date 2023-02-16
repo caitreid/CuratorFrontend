@@ -1,5 +1,8 @@
 import { Form, Button, Container } from 'react-bootstrap'
-import DatePicker from 'react-datepicker'
+
+// import this later at end of MVP. needs formating and other additions to make it look good. 
+// without that its just a bunch of crazy text on the screen , calendar data
+//import DatePicker from 'react-datepicker'
 
 
 const ExhibitionForm = (props) => {
@@ -9,7 +12,7 @@ const ExhibitionForm = (props) => {
         <Container className='justify-content-center'>
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Title:
                     </Form.Label>
@@ -21,7 +24,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Description:
                     </Form.Label>
@@ -33,7 +36,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Start Date:
                     </Form.Label>
@@ -47,7 +50,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         End Date:
                     </Form.Label>
@@ -59,7 +62,7 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Form.Group classname='m-2'>
+                <Form.Group className='m-2'>
                     <Form.Label>
                         Image:
                     </Form.Label>
@@ -72,9 +75,10 @@ const ExhibitionForm = (props) => {
                     />
                 </Form.Group>
                 <Button 
+                    exhibition={exhibition}
                     className='m-2' 
                     type='submit'>
-                        Submit
+                        Submit and ADD Artwork
                  </Button>
 
             </Form>
