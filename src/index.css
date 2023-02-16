@@ -12521,9 +12521,5 @@ progress {
 .artwork__text--title {
   font-weight: bold;
 }
-.artwork__text p + p {
-  margin: 0;
-  padding: 0;
-}
 
 /*# sourceMappingURL=index.css.map */
