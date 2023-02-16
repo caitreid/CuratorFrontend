@@ -189,9 +189,15 @@ return (
         {exhibitionCardsBottom[3]}
       </div>
       </div>
+      <div>
+        <h3>Create Your Own Online Exhibition</h3>
       </div>
-      
-)
+      <div></div>
+      <p>Create an account, browse the collection and curate your own online exhibition.</p>
+      <button>Get Started</button>
+      </div>
+    )
   };
+ 
 
 export default IndexExhibition;
