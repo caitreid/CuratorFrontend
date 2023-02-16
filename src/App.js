@@ -17,10 +17,12 @@ import ChangePassword from './components/auth/ChangePassword'
 
 // components
 import IndexArtworks from './components/artworks/IndexArtworks'
+import ShowArtwork from './components/artworks/ShowArtwork'
 import IndexExhibitions from './components/exhibitions/IndexExhibition'
 import IndexDepartments from './components/departments/IndexDepartments'
 import CreateExhibition from './components/exhibitions/CreateExhibition'
 import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibition'
+
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
@@ -100,6 +102,10 @@ const App = () => {
 						<RequireAuth user={user}>
 							<ChangePassword msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+					/>
+					<Route 
+						path='artworks/:id'
+						element={ <ShowArtwork user={user} msgAlert={msgAlert} />}
 					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
