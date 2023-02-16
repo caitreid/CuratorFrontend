@@ -1,7 +1,10 @@
 import { Form, Button, Container } from 'react-bootstrap'
+import DatePicker from 'react-datepicker'
+
 
 const ExhibitionForm = (props) => {
     const { exhibition, handleChange, handleSubmit, heading } = props
+    
     return (
         <Container className='justify-content-center'>
             <h3>{heading}</h3>
@@ -34,7 +37,9 @@ const ExhibitionForm = (props) => {
                     <Form.Label>
                         Start Date:
                     </Form.Label>
+                    {/* <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} /> */}
                     <Form.Control
+
                         placeholder="When does your Exhibition start?"
                         name="startDate"
                         id="startDate"

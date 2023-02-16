@@ -73,7 +73,7 @@ const App = () => {
 						path='/create-exhibition'
 						element={
 						<RequireAuth user={user}>
-							<CreateExhibition user={user} />
+							<CreateExhibition msgAlert={msgAlert} user={user} />
 						</RequireAuth>
 						}
 					/>

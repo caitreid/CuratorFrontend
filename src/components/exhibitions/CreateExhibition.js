@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ExhibitionForm from '../shared/ExhibitionForm'
 import { useNavigate } from 'react-router-dom'
 import { createExhibition } from '../../api/exhibition'
-import messages from '../shared/AutoDismissAlert/messages'
+import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
 
 
 const CreateExhibition = (props) => {
@@ -17,13 +17,14 @@ const CreateExhibition = (props) => {
         endDate: '',
         img: ''
     })
+    //const [startDate, setStartDate] = useState(new Date());
 
     const onChange = (e) => {
         e.persist()
 
         setExhibition(prevExhibition => {
-            const updatedName = e.target.updatedName
-            let updatedValue = e.target.updatedValue
+            const updatedName = e.target.name
+            let updatedValue = e.target.value
 
             // we possibly need to tackle user entry here on DATES
             // using a calendar picker would be ideal to eliminate errors
@@ -46,14 +47,14 @@ const CreateExhibition = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
-                    message: 'Your Exhibition is created!',
+                    message: createExhibitionSuccess,
                     variant: 'success'
                 })
             })
             .catch(() => {
                 msgAlert({
                     heading: 'Uh oh!',
-                    message: 'Your Exhibition was not created, sorry',
+                    message: createExhibitionFailure,
                     variant: 'danger'
                 })
             })
