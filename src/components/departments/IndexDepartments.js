@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { getAllDepartments } from '../../api/departments'
 import Card from 'react-bootstrap/Card'
 
