@@ -56,19 +56,6 @@ const ShowArtwork = (props) => {
     let artworkItem;
 
     if (artwork) {
-        // artworkItem = artwork.map(item => {
-        //     <div className="artwork artwork__card" key={ item.id }>
-        //         {/* <div className="artwork__image" style={{ backgroundImage: `url(${ item.img })`}}></div>
-        //         <div className="artwork__text">
-        //             <p className="artwork__text--title">{ item.title }</p> */}
-        //             <p>{ item.title }</p>  
-        //             <p>Test</p>
-        //             { console.log(item.title) }
-        //         {/* </div> */}
-
-        //         { item }
-        //     </div>
-        // })
         artworkItem = artwork.map(item => 
             <div key={ item.id }>
                 <div className="artwork__image" style={{ backgroundImage: `url(${ item.img })`}}></div>
@@ -86,13 +73,7 @@ const ShowArtwork = (props) => {
     
 
     return (
-        // <div className="container-md m-4" style={ cardContainerStyle } id={ artwork.map(item => item.id) }>
-        //     <h1>Artwork</h1>
-        //     <div className="artwork__image" style={{ backgroundImage: `url(${ item.img })`}}></div>
-        //     <br></br>
-        //     {/* { artworkItem } */}
-        //     <p className="artwork__text--title">{ artwork.map(item => <p>{item.title}</p>) }</p>
-        // </div>
+
         <div className="container-md m-4">
             <h1> Artwork </h1>
             
