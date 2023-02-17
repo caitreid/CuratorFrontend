@@ -23,7 +23,7 @@ export const getArtworks = (limit, id) => {
                 dims: artwork.measurements,
                 artist: artwork.creators.description,
                 type: artwork.type,
-                img: artwork.images.web.url
+                // img: artwork.images.web.url
             }));
             return { artworks };
         })
