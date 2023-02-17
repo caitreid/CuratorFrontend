@@ -13,6 +13,9 @@ const authenticatedOptions = (
 		<NavLink to='create-exhibition' style={linkStyle}>
 			Create New Exhibition
 		</NavLink>
+		<NavLink to='add-artworks' style={linkStyle}>
+			Add Art to Exhibition
+		</NavLink>
 		<NavLink to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>

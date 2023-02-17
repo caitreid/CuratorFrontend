@@ -17,20 +17,26 @@ import ChangePassword from './components/auth/ChangePassword'
 
 // components
 import IndexArtworks from './components/artworks/IndexArtworks'
+import ShowArtwork from './components/artworks/ShowArtwork'
 import IndexExhibitions from './components/exhibitions/IndexExhibition'
 import ShowExhibition from './components/exhibitions/ShowExhibition'
 import IndexDepartments from './components/departments/IndexDepartments'
+import ShowDepartment from './components/departments/ShowDepartment'
 import CreateExhibition from './components/exhibitions/CreateExhibition'
+import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibition'
+
+
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
+  const [exhibition, setExhibition] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
-  console.log('user in app', user)
-  console.log('message alerts', msgAlerts)
+//   console.log('user in app', user)
+//   console.log('message alerts', msgAlerts)
   
   const clearUser = () => {
     console.log('clear user ran')
@@ -59,6 +65,7 @@ const App = () => {
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route path='/exhibitions' element={ <IndexExhibitions />} />
 					<Route path='/departments' element={ <IndexDepartments />} />
+					<Route path='/departments/:id' element={ <ShowDepartment />} />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
 					
 					<Route
@@ -79,6 +86,18 @@ const App = () => {
 						}
 					/>
 					<Route
+						path='/exhibitions/add-artworks'
+						element={
+						<RequireAuth user={user}>
+							<AddArtworkToExhibition 
+							msgAlert={msgAlert} 
+							user={user}
+							exhibition={exhibition} />
+
+						</RequireAuth>
+						}
+					/>
+					<Route
 						path='/sign-out'
 						element={
 						<RequireAuth user={user}>
@@ -92,6 +111,10 @@ const App = () => {
 						<RequireAuth user={user}>
 							<ChangePassword msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+					/>
+					<Route 
+						path='artworks/:id'
+						element={ <ShowArtwork user={user} msgAlert={msgAlert} />}
 					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
