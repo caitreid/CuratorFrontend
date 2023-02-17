@@ -64,6 +64,7 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route path='/exhibitions' element={ <IndexExhibitions />} />
+					<Route path='/exhibitions/:id' element={ <ShowExhibition />} />
 					<Route path='/departments' element={ <IndexDepartments />} />
 					<Route path='/departments/:id' element={ <ShowDepartment />} />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}

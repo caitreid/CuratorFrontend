@@ -97,6 +97,11 @@ const exhibitionCards = exhibitions.map(exhibition => (
       </div>
     </div>
   </div>
+  <Card.Footer>
+        <Link to={`/exhibition/${exhibition._id}`}>
+          <button className='btn btn-light'>{exhibition.title}</button>
+        </Link>
+      </Card.Footer>
 </Card>
 
 
