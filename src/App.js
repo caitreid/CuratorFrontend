@@ -19,6 +19,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import IndexArtworks from './components/artworks/IndexArtworks'
 import ShowArtwork from './components/artworks/ShowArtwork'
 import IndexExhibitions from './components/exhibitions/IndexExhibition'
+import ShowExhibition from './components/exhibitions/ShowExhibition'
 import IndexDepartments from './components/departments/IndexDepartments'
 import ShowDepartment from './components/departments/ShowDepartment'
 import CreateExhibition from './components/exhibitions/CreateExhibition'
@@ -63,6 +64,7 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route path='/exhibitions' element={ <IndexExhibitions />} />
+					<Route path='/exhibitions/:id' element={ <ShowExhibition />} />
 					<Route path='/departments' element={ <IndexDepartments />} />
 					<Route path='/departments/:id' element={ <ShowDepartment />} />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
