@@ -47,7 +47,7 @@ const IndexDepartment = (props) => {
 
 
   return (
-    <div>
+    <div className="container-md m-4">
       <div>
         <h1>View Artworks</h1>
         <p>Search by Department</p>

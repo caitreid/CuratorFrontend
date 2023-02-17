@@ -10,8 +10,7 @@ const ShowDepartment = (props) => {
     const [artworks, setArtworks] = useState(null)
     const { id } = useParams()
     const [error, setError] = useState(false)
-    // console.log('these are the artworks in index', artworks)
-    // console.log('this is department', department)
+
     const { msgAlert } = props
 
     const cardContainerStyle = {
@@ -24,26 +23,28 @@ const ShowDepartment = (props) => {
         getOneDepartment(id)
             .then(res => setDepartment(res.data.department))
             .catch(err => console.log('this is err from ShowDepartment: ', err))
-        }, [])
-
-    //     if (department) {
-    //         // set to 50 artworks for now. can change to whatever we want.
-    //         getOneDepartmentArtworks(20, department.name)
-    //             .then((res) => setArtworks(res.artworks))
-    //             .catch((err) => {
-    //                 msgAlert({
-    //                     heading: 'Error getting artworks',
-    //                     message: 'something went wrong !!',
-    //                     variant: 'danger'
-    //                 })
-    //                 setError(true)
-    //             })
-
-    //     }
-        
-    // }, [msgAlert])
+    }, [])
     
-    console.log('this is department', department)
+    if (department) {
+
+
+
+        // set to 50 artworks for now. can change to whatever we want.
+        getOneDepartmentArtworks(20, department.name)
+            .then((res) => setArtworks(res.artworks))
+            .catch((err) => {
+                msgAlert({
+                    heading: 'Error getting artworks',
+                    message: 'something went wrong !!',
+                    variant: 'danger'
+                })
+                setError(true)
+            })
+
+    }
+        
+
+    // console.log('this is department name', department.name)
 
     
 
@@ -59,11 +60,18 @@ const ShowDepartment = (props) => {
         return <p>No departments yet, go add some!</p>
     }
 
+    // const departmentArtworks = artworks.map((artwork) => {
+    //     <div key={ artwork.id }>
+    //         <p> { artwork.title }</p>
+    //     </div>
+    // })
+
     
     return (
         <>
             <div className="container-md m-4" style={ cardContainerStyle }>
                 <h1>{ department.name }</h1>
+                <div style={{ backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div>
             </div>
             
         </>
