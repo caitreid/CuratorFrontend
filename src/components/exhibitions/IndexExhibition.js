@@ -198,11 +198,7 @@ return (
       <p>Create an account, browse the collection and curate your own online exhibition.</p>
       <button>Get Started</button>
       </div>
-      <Switch>
-        <Route path="/exhibitions/:id">
-          <ShowExhibition exhibitions={exhibitions} />
-        </Route>
-      </Switch>
+    
       </div>
     )
   };
