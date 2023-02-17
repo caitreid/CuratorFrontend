@@ -65,7 +65,7 @@ const ShowDepartment = (props) => {
 
     if (artworks) {
 
-        const artworkCards = artworks.map((work) => (
+        artworkCards = artworks.map((work) => (
             <div key={ work.id }>
                 <div style={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundImage: `url(${work.img})`, width: '250px', height: '250px'}}></div>
                 <p><b> { work.title } </b></p>
@@ -94,14 +94,7 @@ const ShowDepartment = (props) => {
 
     
     return (
-        <>
-            <div className="container-md m-4" style={ cardContainerStyle }>
-                <h1>{ department.name }</h1>
-                <div style={{ backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div>
-
-                { artworkCards }
-            </div>
-            
+        <>  
         </>
     )
 }

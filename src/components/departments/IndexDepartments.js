@@ -45,7 +45,7 @@ const IndexDepartment = (props) => {
       <Card.Footer>
         {/* <button href={`/departments/${department._id}`} onClick={handleClick}>{department.name}</button> */}
         <Link to={`/departments/${department._id}`}>
-          <button>{department.name}</button>
+          <button className='btn btn-light'>{department.name}</button>
         </Link>
       </Card.Footer>
     </Card>
