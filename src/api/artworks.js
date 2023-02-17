@@ -3,6 +3,7 @@
 import axios from 'axios'
 
 // READ -> Index
+const defaultPic = 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'
 
 export const getArtworks = (limit, id) => {
     const url = `https://openaccess-api.clevelandart.org/api/artworks`
@@ -14,6 +15,7 @@ export const getArtworks = (limit, id) => {
         return axios(url, {params})
         // const resp = axios(url, {params})
         .then((resp) => {
+            console.log('this is resp', resp)
             const artworks = resp.data.data.map((artwork) => ({
                 id: artwork.id,
                 date: artwork.creation_date,
@@ -23,7 +25,9 @@ export const getArtworks = (limit, id) => {
                 dims: artwork.measurements,
                 artist: artwork.creators.description,
                 type: artwork.type,
-                // img: artwork.images.web.url
+//ternary
+                img: artwork.images.web ? artwork.images.web : defaultPic
+
             }));
             return { artworks };
         })

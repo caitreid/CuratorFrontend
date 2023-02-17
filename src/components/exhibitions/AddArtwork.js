@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 // import { render } from "@testing-library/react"
 import { getArtworks } from "../../api/artworks"
+import { Button } from "react-bootstrap"
 
 const cardContainerStyle = {
     display: 'flex',
@@ -11,13 +12,13 @@ const cardContainerStyle = {
     justifyContent: 'center'
 }
 
-const IndexArtworks = (props) => {
+const AddArtworks = (props) => {
 
     const [ artworks, setArtworks ] = useState(null)
     const [error, setError] = useState(false)
+    const [ artArray, setArtArray] = useState([])   
     // console.log('these are the artworks in index', artworks)
     const { msgAlert } = props
-
 
     useEffect(() => {
         
@@ -31,7 +32,7 @@ const IndexArtworks = (props) => {
                 })
                 setError(true)
             })
-    }, [])
+    }, [msgAlert])
 
     // if error, display an error
     if (error) {
@@ -44,18 +45,37 @@ const IndexArtworks = (props) => {
     } else if (artworks.length === 0) {
         return <p>No artworkss yet, go add some!</p>
     }
-    artworks.forEach(art => {
-        console.log('this is art.img', art.img)
-    })
+    
+    // const [ artArray, setArtArray] = useState([])    
+
+    const somefunc = (artwork) => {
+        console.log('thsi is add', artwork)
+        // newart.push(artwork)
+        // setArtArray(artArray.push(artwork))
+        setArtArray(current => [
+            ...current, artwork
+        ])
+
+        console.log('this is new array', artArray)
+        //return newart.save()
+    }
 
     const artworkCards = artworks.map((artwork) => (
         <div className="artwork artwork__card" key={ artwork.id }>
-            <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img['url']})` }}></div>
-            {/* <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div> */}
+            {/* <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div> */}
+            <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div>
             <div className="artwork__text">
                 <p className="artwork__text--title">{ artwork.title }</p>
                 <p>{ artwork.department }</p>   
-                <Link to={ `/artworks/${artwork.id}` }>See Artwork</Link>
+                <Button
+                artwork={artwork}
+                data={artwork.id}
+                // onClick={() => (somefunc(artwork))}
+                onClick={() => (somefunc(artwork))}
+                >          
+                Add Artwork
+                
+                </Button>
                 
             </div>
         </div>
@@ -71,4 +91,4 @@ const IndexArtworks = (props) => {
 
 }
 
-export default IndexArtworks
+export default AddArtworks
