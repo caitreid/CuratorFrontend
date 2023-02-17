@@ -3,6 +3,7 @@ import ExhibitionForm from '../shared/ExhibitionForm'
 import { useNavigate } from 'react-router-dom'
 import { createExhibition } from '../../api/exhibition'
 import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
+import AddArtworks from "./AddArtwork"
 
 
 const CreateExhibition = (props) => {
@@ -65,12 +66,16 @@ const CreateExhibition = (props) => {
     }
 
     return (
+        <>
+        
         <ExhibitionForm
             exhibition={exhibition}
             handleChange={onChange}
             handleSubmit={onSubmit}
             heading="Create a New Exhibition!"
-        />
+            />
+        <AddArtworks/>
+        </>
     )
 }
 
