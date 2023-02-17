@@ -25,7 +25,6 @@ export const getArtworks = (limit, id) => {
                 dims: artwork.measurements,
                 artist: artwork.creators.description,
                 type: artwork.type,
-//ternary
                 img: artwork.images.web ? artwork.images.web : defaultPic
 
             }));
