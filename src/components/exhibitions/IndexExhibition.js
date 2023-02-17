@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
+import { Link, Route, Switch } from 'react-router-dom'
+import ShowExhibition from './ShowExhibition'
 //import IndexArtworks from '../artworks/IndexArtworks';
 
 
@@ -26,9 +28,13 @@ const IndexExhibition = (props) => {
     getAllExhibitions() 
       .then(res => setExhibitions(res.data.exhibitions))
       .catch(err => console.log(err))
+<<<<<<< HEAD
 }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
 
+=======
+}, []); 
+>>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
 
 if (!exhibitions) {
   // if no data is loaded yet, display 'loading'
@@ -37,6 +43,7 @@ if (!exhibitions) {
   // otherwise if there ARE no pets, display that message
   return <p>No exhibitions yet, go add some!</p>
 }
+
 
 const exhibitionCards = exhibitions.map(exhibition => (
   <Card
@@ -50,6 +57,7 @@ const exhibitionCards = exhibitions.map(exhibition => (
       borderRadius: "10px",
       overflow: "hidden"
       // position: "relative"
+
   }}
 >
   <div
@@ -88,29 +96,50 @@ const exhibitionCards = exhibitions.map(exhibition => (
         alignItems: "center"
       }}
     >
-      {/* <div style={{ marginRight: "10px" }}>
-      </div> */}
+      
       <div>
         <div>{exhibition.startDate}</div>
         <div>{exhibition.endDate}</div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 
+=======
+  <Card.Footer>
+        <Link to={`/exhibition/${exhibition._id}`}>
+          <button className='btn btn-light'>{exhibition.title}</button>
+        </Link>
+      </Card.Footer>
+>>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
 </Card>
+
 
 )
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
 );
 
 return (
   <div className='container-md' style= {cardContainerStyle}>
     { exhibitionCards }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
       </div>
+    
+     
     )
   };
  
 
+
 export default IndexExhibition
+
