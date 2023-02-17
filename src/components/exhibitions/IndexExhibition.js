@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
+import { Link, Route, Switch } from 'react-router-dom'
+import ShowExhibition from './ShowExhibition'
 
 const IndexExhibition = (props) => {
   // State to store the departments data
@@ -39,8 +41,8 @@ if (!exhibitions) {
 }
 
 const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
-  <Card
-  key={exhibition.id}
+  <Link key={exhibition.id} to={`/exhibitions/${exhibition.id}`}>
+    <Card
   style={{
     background: "#fff",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
@@ -94,13 +96,13 @@ const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
     </div>
   </div>
 </Card>
-
+</Link>
 ));
 
 
 const exhibitionCardsBottom = exhibitions.slice(2, 5).map((exhibition, index) => (
-  <Card
-  key={exhibition.id}
+  <Link key={exhibition.id} to={`/exhibitions/${exhibition.id}`}>
+    <Card
   style={{
     background: "#fff",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
@@ -154,7 +156,7 @@ const exhibitionCardsBottom = exhibitions.slice(2, 5).map((exhibition, index) =>
     </div>
   </div>
 </Card>
-
+</Link>
 ));
 
 return (
@@ -192,9 +194,15 @@ return (
       <div>
         <h3>Create Your Own Online Exhibition</h3>
       </div>
-      <div></div>
+      <div>
       <p>Create an account, browse the collection and curate your own online exhibition.</p>
       <button>Get Started</button>
+      </div>
+      <Switch>
+        <Route path="/exhibitions/:id">
+          <ShowExhibition exhibitions={exhibitions} />
+        </Route>
+      </Switch>
       </div>
     )
   };

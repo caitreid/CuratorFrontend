@@ -4,11 +4,7 @@ import axios from 'axios'
 
 export const getAllExhibitions = () => {
     return axios(`${apiUrl}/exhibitions`);
-
-};
-
-  
-
+}
 // READ -- show ONE artwork page?
 
 // CREATE - create a new exhibition
