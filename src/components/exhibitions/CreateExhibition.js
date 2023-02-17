@@ -66,16 +66,16 @@ const CreateExhibition = (props) => {
     }
 
     return (
-        <>
+        <div className='container-md p-4'>
         
-        <ExhibitionForm
-            exhibition={exhibition}
-            handleChange={onChange}
-            handleSubmit={onSubmit}
-            heading="Create a New Exhibition!"
-            />
-        <AddArtworks/>
-        </>
+            <ExhibitionForm
+                exhibition={exhibition}
+                handleChange={onChange}
+                handleSubmit={onSubmit}
+                heading="Create a New Exhibition"
+                />
+            <AddArtworks/>
+        </div>
     )
 }
 

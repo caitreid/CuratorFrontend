@@ -104,9 +104,7 @@ const exhibitionCards = exhibitions.map(exhibition => (
 
 
 
-
 );
-
   return (
     <div className='container-md p-4'>
       <h1>All Exhibitions</h1>
