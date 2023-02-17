@@ -51,9 +51,8 @@ const exhibitionCards = exhibitions.map(exhibition => (
       borderRadius: "10px",
       overflow: "hidden"
       // position: "relative"
-
-  }}
->
+    }}
+  >
   <div
     style={{
       backgroundImage: `url(${exhibition.img})`,
@@ -63,8 +62,7 @@ const exhibitionCards = exhibitions.map(exhibition => (
   />
   <div
     style={{
-      padding: "20px",
-      height: "20%",
+      padding: "1rem",
       position: "relative"
     }}
   >
@@ -80,9 +78,8 @@ const exhibitionCards = exhibitions.map(exhibition => (
     </h2>
     <div
       style={{
-        position: "absolute",
-        bottom: "20px",
-        left: "20px",
+        
+        // left: "20px",
         color: "#000",
         fontSize: "14px",
         fontWeight: "bold",
@@ -103,8 +100,6 @@ const exhibitionCards = exhibitions.map(exhibition => (
         </Link>
       </Card.Footer>
 </Card>
-
-
 )
 
 
@@ -112,15 +107,12 @@ const exhibitionCards = exhibitions.map(exhibition => (
 
 );
 
-return (
-  <div className='container-md' style= {cardContainerStyle}>
-    { exhibitionCards }
-  
-      </div>
-    
-     
-    )
-  };
+  return (
+    <div className='container-md' style= {cardContainerStyle}>
+      { exhibitionCards }
+    </div>
+  )
+};
  
 
 
