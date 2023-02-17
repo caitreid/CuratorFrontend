@@ -22,6 +22,12 @@ const IndexDepartment = (props) => {
     
   } 
 
+  const gridContainerStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "1rem",
+    width: '100%'
+  }
 
   if (!departments) {
     // if no pets loaded yet, display 'loading'
@@ -52,14 +58,8 @@ const IndexDepartment = (props) => {
         <h1>View Artworks</h1>
         <p>Search by Department</p>
       </div>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "1rem",
-        height: "100vh",
-        overflow: "scroll"
-      }}>
-        {departmentCards}
+      <div className="card-container" style={ gridContainerStyle }>
+        { departmentCards }
       </div>
     </div>
   )
