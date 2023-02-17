@@ -20,8 +20,10 @@ import IndexArtworks from './components/artworks/IndexArtworks'
 import ShowArtwork from './components/artworks/ShowArtwork'
 import IndexExhibitions from './components/exhibitions/IndexExhibition'
 import IndexDepartments from './components/departments/IndexDepartments'
+import ShowDepartment from './components/departments/ShowDepartment'
 import CreateExhibition from './components/exhibitions/CreateExhibition'
 import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibition'
+
 
 
 // import IndexArtworks from './components/artworks/IndexArtworks'
@@ -62,6 +64,7 @@ const App = () => {
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route path='/exhibitions' element={ <IndexExhibitions />} />
 					<Route path='/departments' element={ <IndexDepartments />} />
+					<Route path='/departments/:id' element={ <ShowDepartment />} />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
 					
 					<Route
