@@ -7,20 +7,23 @@ export const getAllExhibitions = () => {
 
 }
 
-export const getOneExhibitionArtworks = () => {
-  return axios(`${apiUrl}/exhibitions`);
+// export const getOneExhibitionArtworks = () => {
+//   return axios(`${apiUrl}/exhibitions`);
 
-}
+// }
 
 
   
 // READ -- show My exhibitions page?
 
+
 // READ -- show ONE exhibition page?
 export const getOneExhibition = (id) => {
-  console.log('this is the new exhibition ', id)
   return axios(`${apiUrl}/exhibitions/${id}`)
 }
+
+
+
 // CREATE - create a new exhibition
 
 export const createExhibition = (user, newExhibition) => {
