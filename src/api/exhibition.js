@@ -6,6 +6,15 @@ export const getAllExhibitions = () => {
     return axios(`${apiUrl}/exhibitions`);
 
 }
+export const getOneExhibition = () => {
+  return axios(`${apiUrl}/exhibitions`);
+
+}
+export const getOneExhibitionArtworks = () => {
+  return axios(`${apiUrl}/exhibitions`);
+
+}
+
 
   
 // READ -- show My exhibitions page?
