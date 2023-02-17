@@ -12522,4 +12522,33 @@ progress {
   font-weight: bold;
 }
 
+.exhibition__card {
+  margin: 1rem;
+  max-width: 15rem;
+}
+.exhibition__image {
+  height: 20rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.exhibition__text {
+  margin: 1rem 0;
+  text-align: left;
+  line-height: 1rem;
+}
+.exhibition__text--title {
+  font-weight: bold;
+}
+.exhibition__text--extitle {
+  font-weight: bold;
+  font-size: 40px;
+}
+.exhibition__text--body {
+  font-size: 11px;
+}
+.exhibition__text--body p {
+  margin: 0;
+}
+
 /*# sourceMappingURL=index.css.map */

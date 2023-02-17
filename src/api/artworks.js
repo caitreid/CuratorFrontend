@@ -3,7 +3,8 @@
 import axios from 'axios'
 
 // READ -> Index
-const defaultPic = 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'
+// const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
+const defaultPic = { url: 'public/dickens-lin-zOkAWTyxO60-unsplash.jpg'}
 
 export const getArtworks = (limit, id) => {
     const url = `https://openaccess-api.clevelandart.org/api/artworks`

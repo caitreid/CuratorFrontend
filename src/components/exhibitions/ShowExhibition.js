@@ -40,16 +40,24 @@ const ShowExhibition = (props) => {
         if(exhibition.artworks.length > 0) {
             artCards = exhibition.artworks.map(art => (
 
-                <div className="artwork__image" >
-                    {art.title}<br/>
-                    {/* {art.description}<br/> */}
-                    {art.date}<br/>
-                    {art.artist}<br/>
-                    {art.dimensions}<br/>
-                    {art.medium}<br/>
-                    <img src={art.img}>
+                <div >
+                    <br/>
+                    <img className="exhibition__image" src={art.img}>
                     </img><br/>
-                    {art.department}
+                    <span className="exhibition__text--title">
+                    {art.title}<br/>
+                    </span>
+                    <div className="exhibition__text--body">
+                    <p>
+                    {art.description}
+                    </p>
+                    <p>{art.date}</p>
+                    <p>{art.artist}</p>
+                    <p>{art.dimensions}</p>
+                    <p>{art.medium}</p>
+                    <p>{art.department}</p>
+                    
+                    </div>
                 </div>
  
             ))
@@ -58,11 +66,11 @@ const ShowExhibition = (props) => {
         return (
 
 
-        <div className="container-md m-4">
-            <h1> {exhibition.title} </h1>
-            <h6> {exhibition.startDate}</h6>
-            <h6> {exhibition.endDate}</h6>
-            <img src={exhibition.img}></img>    
+        <div className="container-md">
+            <span className="exhibition__text--extitle"> {exhibition.title} </span><br/>
+             {exhibition.startDate}<br/>
+             {exhibition.endDate}<br/>
+            <img className="exhibition__image" src={exhibition.img}></img>    
             <h6> { exhibition.description }</h6>
             <div>
             

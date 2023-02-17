@@ -1,4 +1,4 @@
-.artwork {
+.exhibition {
     &__card {
         margin: 1rem;
         max-width: 15rem;
@@ -17,7 +17,16 @@
         &--title {
             font-weight: bold;
         }
-
+        &--extitle {
+            font-weight: bold;
+            font-size: 40px;
+        }
+        &--body {
+            font-size: 11px;
+            p {
+                margin: 0;
+            }
+        } 
         // p + p {
         //     margin: 0;
         //     padding: 0;
