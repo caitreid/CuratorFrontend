@@ -24,24 +24,24 @@ const ShowDepartment = (props) => {
         getOneDepartment(id)
             .then(res => setDepartment(res.data.department))
             .catch(err => console.log('this is err from ShowDepartment: ', err))
-        }
+        }, [])
 
-        if (department) {
-            // set to 50 artworks for now. can change to whatever we want.
-            getOneDepartmentArtworks(20, department.name)
-                .then((res) => setArtworks(res.artworks))
-                .catch((err) => {
-                    msgAlert({
-                        heading: 'Error getting artworks',
-                        message: 'something went wrong !!',
-                        variant: 'danger'
-                    })
-                    setError(true)
-                })
+    //     if (department) {
+    //         // set to 50 artworks for now. can change to whatever we want.
+    //         getOneDepartmentArtworks(20, department.name)
+    //             .then((res) => setArtworks(res.artworks))
+    //             .catch((err) => {
+    //                 msgAlert({
+    //                     heading: 'Error getting artworks',
+    //                     message: 'something went wrong !!',
+    //                     variant: 'danger'
+    //                 })
+    //                 setError(true)
+    //             })
 
-        }
+    //     }
         
-    }, [msgAlert])
+    // }, [msgAlert])
     
     console.log('this is department', department)
 
@@ -58,7 +58,6 @@ const ShowDepartment = (props) => {
     } else if (department.length === 0) {
         return <p>No departments yet, go add some!</p>
     }
-
 
     
     return (
