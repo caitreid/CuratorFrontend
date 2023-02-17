@@ -28,13 +28,9 @@ const IndexExhibition = (props) => {
     getAllExhibitions() 
       .then(res => setExhibitions(res.data.exhibitions))
       .catch(err => console.log(err))
-<<<<<<< HEAD
 }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
 
-=======
-}, []); 
->>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
 
 if (!exhibitions) {
   // if no data is loaded yet, display 'loading'
@@ -46,100 +42,79 @@ if (!exhibitions) {
 
 
 const exhibitionCards = exhibitions.map(exhibition => (
-  <Card
-    key={exhibition.id}
-    
-    style={{
-      width: '30%',
-      margin: 5,
-      // background: "#fff",
-      boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-      borderRadius: "10px",
-      overflow: "hidden"
-      // position: "relative"
+      <Card
+        key={exhibition.id}
+        
+        style={{
+          width: '30%',
+          margin: 5,
+          // background: "#fff",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+          borderRadius: "10px",
+          overflow: "hidden"
+          // position: "relative"
 
-  }}
->
-  <div
-    style={{
-      backgroundImage: `url(${exhibition.img})`,
-      backgroundSize: "cover",
-      height: "250px"
-    }}
-  />
-  <div
-    style={{
-      padding: "20px",
-      height: "20%",
-      position: "relative"
-    }}
-  >
-    <h2
-      style={{
-        fontWeight: "bold",
-        fontSize: "18px",
-        marginBottom: "5px",
-        color: "#000"
       }}
     >
-      {exhibition.title}
-    </h2>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "20px",
-        left: "20px",
-        color: "#000",
-        fontSize: "14px",
-        fontWeight: "bold",
-        display: "flex",
-        alignItems: "center"
-      }}
-    >
-      
-      <div>
-        <div>{exhibition.startDate}</div>
-        <div>{exhibition.endDate}</div>
+      <div
+        style={{
+          backgroundImage: `url(${exhibition.img})`,
+          backgroundSize: "cover",
+          height: "250px"
+        }}
+      />
+      <div
+        style={{
+          padding: "20px",
+          height: "20%",
+          position: "relative"
+        }}
+      >
+        <h2
+          style={{
+            fontWeight: "bold",
+            fontSize: "18px",
+            marginBottom: "5px",
+            color: "#000"
+          }}
+        >
+          {exhibition.title}
+        </h2>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            left: "20px",
+            color: "#000",
+            fontSize: "14px",
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
+          
+          <div>
+            <div>{exhibition.startDate}</div>
+            <div>{exhibition.endDate}</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-<<<<<<< HEAD
-
-=======
-  <Card.Footer>
-        <Link to={`/exhibition/${exhibition._id}`}>
-          <button className='btn btn-light'>{exhibition.title}</button>
-        </Link>
-      </Card.Footer>
->>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
-</Card>
+    </Card>
 
 
 )
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
 );
 
-return (
-  <div className='container-md' style= {cardContainerStyle}>
-    { exhibitionCards }
-<<<<<<< HEAD
+  return (
+    <div className='container-md' style= {cardContainerStyle}>
+      { exhibitionCards }
+        </div>
+      
+      
+      )
 
-=======
-  
->>>>>>> 2f5dc1decaaed8b10071ad8f13c5167d10d42399
-      </div>
-    
-     
-    )
-  };
- 
-
-
+}
 export default IndexExhibition
 
