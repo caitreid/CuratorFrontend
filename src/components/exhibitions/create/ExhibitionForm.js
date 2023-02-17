@@ -74,12 +74,12 @@ const ExhibitionForm = (props) => {
                         onChange={handleChange}                        
                     />
                 </Form.Group>
-                <Button 
+                {/* <Button 
                     exhibition={exhibition}
                     className='m-2' 
                     type='submit'>
                         Submit and ADD Artwork
-                 </Button>
+                 </Button> */}
 
             </Form>
 

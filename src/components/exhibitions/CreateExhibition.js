@@ -1,10 +1,14 @@
 import React, { useState } from "react"
-import ExhibitionForm from '../shared/ExhibitionForm'
 import { useNavigate } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+
+// api and messages
 import { createExhibition } from '../../api/exhibition'
 import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
-import AddArtworks from "./AddArtwork"
 
+// components
+import AddArtworks from "./create/AddArtwork"
+import ExhibitionForm from './create/ExhibitionForm'
 
 const CreateExhibition = (props) => {
     const { user, msgAlert } = props
@@ -16,7 +20,7 @@ const CreateExhibition = (props) => {
         description: '',
         startDate: '',
         endDate: '',
-        img: ''
+        img: '',
     })
     //const [startDate, setStartDate] = useState(new Date());
 
@@ -41,28 +45,28 @@ const CreateExhibition = (props) => {
     }
 
     const onSubmit = (e) => {
-        e.preventDefault()
-        
+        // e.preventDefault()
 
-        createExhibition(user, exhibition)
-            // should go to an ADD ARTWORKS PAGE next so that the user can add art to this exhibition id
-            // probably /exhibtions/exhibitionID/addArt
-            // fix later 
-            .then(res => { navigate(`/exhibitions/add-artworks`)})
-            .then(() => {
-                msgAlert({
-                    heading: 'Yeah!',
-                    message: createExhibitionSuccess,
-                    variant: 'success'
-                })
-            })
-            .catch(() => {
-                msgAlert({
-                    heading: 'Uh oh!',
-                    message: createExhibitionFailure,
-                    variant: 'danger'
-                })
-            })
+        console.log('this is being clicked')
+
+        // console.log('state of artworks', artworks)
+
+        // createExhibition(user, exhibition)
+            
+        //     .then(() => {
+        //         msgAlert({
+        //             heading: 'Yeah!',
+        //             message: createExhibitionSuccess,
+        //             variant: 'success'
+        //         })
+        //     })
+        //     .catch(() => {
+        //         msgAlert({
+        //             heading: 'Uh oh!',
+        //             message: createExhibitionFailure,
+        //             variant: 'danger'
+        //         })
+        //     })
     }
 
     return (
@@ -71,10 +75,17 @@ const CreateExhibition = (props) => {
             <ExhibitionForm
                 exhibition={exhibition}
                 handleChange={onChange}
-                handleSubmit={onSubmit}
+                // handleSubmit={onSubmit}
                 heading="Create a New Exhibition"
-                />
+            />
             <AddArtworks/>
+
+            <Button 
+                onClick={() => onSubmit()}
+                className='btn btn-success m-2' 
+                type='submit'>
+                    Submit and ADD Artwork
+            </Button>
         </div>
     )
 }

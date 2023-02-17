@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 // import {  apiArtUrl } from "../../apiConfigArt"
 import { Link } from 'react-router-dom'
 // import { render } from "@testing-library/react"
-import { getArtworks } from "../../api/artworks"
+import { getArtworks } from "../../../api/artworks"
 import { Button } from "react-bootstrap"
 
 const cardContainerStyle = {
@@ -55,10 +55,9 @@ const AddArtworks = (props) => {
         setArtArray(current => [
             ...current, artwork
         ])
-
-        console.log('this is new array', artArray)
-        //return newart.save()
     }
+
+    console.log('this is new array', artArray)
 
     const artworkCards = artworks.map((artwork) => (
         <div className="artwork artwork__card" key={ artwork.id }>
