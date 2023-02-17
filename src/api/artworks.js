@@ -11,8 +11,8 @@ export const getArtworks = (limit, id) => {
             limit: limit,
             has_image: 1
         };
-    return axios(url, {params})
-    // const resp = axios(url, {params})
+        return axios(url, {params})
+        // const resp = axios(url, {params})
         .then((resp) => {
             const artworks = resp.data.data.map((artwork) => ({
                 id: artwork.id,

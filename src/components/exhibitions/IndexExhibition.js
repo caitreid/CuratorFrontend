@@ -4,11 +4,19 @@ import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
 //import IndexArtworks from '../artworks/IndexArtworks';
 
+
+const cardContainerStyle = {
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: 'center',
+  
+}
+
 const IndexExhibition = (props) => {
   // State to store the departments data
   const [exhibitions, setExhibitions] = useState(null);
-  console.log('this is exhibition', exhibitions)
-  console.log('this is props', props)
+  // console.log('this is exhibition', exhibitions)
+  // console.log('this is props', props)
   
   // State to store the number of departments to display
   //const [displayCount, setDisplayCount] = useState(8);
@@ -19,7 +27,7 @@ const IndexExhibition = (props) => {
       .then(res => setExhibitions(res.data.exhibitions))
       .catch(err => console.log(err))
 }, []); // Second argument of an empty array means this useEffect will only run once on component mount
-console.log('this is an exhibition', exhibitions)
+    // console.log('this is an exhibition', exhibitions)
   // Function to handle the "handleAllArtworks" button click
  // const handleAllArtworks = () => {
     // Update displayCount to display all departments
@@ -31,6 +39,7 @@ console.log('this is an exhibition', exhibitions)
 //   return <p>Error!</p>
 // }
 
+
 if (!exhibitions) {
   // if no data is loaded yet, display 'loading'
   return <p>Loading...</p>
@@ -39,28 +48,31 @@ if (!exhibitions) {
   return <p>No exhibitions yet, go add some!</p>
 }
 
-const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
+const exhibitionCards = exhibitions.map(exhibition => (
   <Card
-  key={exhibition.id}
-  style={{
-    background: "#fff",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-    borderRadius: "10px",
-    overflow: "hidden",
-    position: "relative"
+    key={exhibition.id}
+    
+    style={{
+      width: '30%',
+      margin: 5,
+      // background: "#fff",
+      boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+      borderRadius: "10px",
+      overflow: "hidden"
+      // position: "relative"
   }}
 >
   <div
     style={{
       backgroundImage: `url(${exhibition.img})`,
       backgroundSize: "cover",
-      height: "200px"
+      height: "250px"
     }}
   />
   <div
     style={{
       padding: "20px",
-      height: "100%",
+      height: "20%",
       position: "relative"
     }}
   >
@@ -68,7 +80,7 @@ const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
       style={{
         fontWeight: "bold",
         fontSize: "18px",
-        marginBottom: "10px",
+        marginBottom: "5px",
         color: "#000"
       }}
     >
@@ -86,8 +98,8 @@ const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
         alignItems: "center"
       }}
     >
-      <div style={{ marginRight: "10px" }}>
-      </div>
+      {/* <div style={{ marginRight: "10px" }}>
+      </div> */}
       <div>
         <div>{exhibition.startDate}</div>
         <div>{exhibition.endDate}</div>
@@ -96,71 +108,72 @@ const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
   </div>
 </Card>
 
-));
+)
 
 
-const exhibitionCardsBottom = exhibitions.slice(2, 10).map((exhibition, index) => (
-  <Card
-  key={exhibition.id}
-  style={{
-    background: "#fff",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-    borderRadius: "10px",
-    overflow: "hidden",
-    position: "relative"
-  }}
->
-  <div
-    style={{
-      backgroundImage: `url(${exhibition.img})`,
-      backgroundSize: "cover",
-      height: "200px"
-    }}
-  />
-  <div
-    style={{
-      padding: "20px",
-      height: "100%",
-      position: "relative"
-    }}
-  >
-    <h2
-      style={{
-        fontWeight: "bold",
-        fontSize: "18px",
-        marginBottom: "10px",
-        color: "#000"
-      }}
-    >
-      {exhibition.title}
-    </h2>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "20px",
-        left: "20px",
-        color: "#000",
-        fontSize: "14px",
-        fontWeight: "bold",
-        display: "flex",
-        alignItems: "center"
-      }}
-    >
-      <div style={{ marginRight: "10px" }}>
-      </div>
-      <div>
-        <div>{exhibition.startDate}</div>
-        <div>{exhibition.endDate}</div>
-      </div>
-    </div>
-  </div>
-</Card>
+// const exhibitionCardsBottom = exhibitions.slice(2, 10).map((exhibition, index) => (
+//   <Card
+//   key={exhibition.id}
+//   style={{
+//     background: "#fff",
+//     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+//     borderRadius: "10px",
+//     overflow: "hidden",
+//     position: "relative"
+//   }}
+// >
+//   <div
+//     style={{
+//       backgroundImage: `url(${exhibition.img})`,
+//       backgroundSize: "cover",
+//       height: "200px"
+//     }}
+//   />
+//   <div
+//     style={{
+//       padding: "20px",
+//       height: "100%",
+//       position: "relative"
+//     }}
+//   >
+//     <h2
+//       style={{
+//         fontWeight: "bold",
+//         fontSize: "18px",
+//         marginBottom: "10px",
+//         color: "#000"
+//       }}
+//     >
+//       {exhibition.title}
+//     </h2>
+//     <div
+//       style={{
+//         position: "absolute",
+//         bottom: "20px",
+//         left: "20px",
+//         color: "#000",
+//         fontSize: "14px",
+//         fontWeight: "bold",
+//         display: "flex",
+//         alignItems: "center"
+//       }}
+//     >
+//       <div style={{ marginRight: "10px" }}>
+//       </div>
+//       <div>
+//         <div>{exhibition.startDate}</div>
+//         <div>{exhibition.endDate}</div>
+//       </div>
+//     </div>
+//   </div>
+// </Card>
 
-));
+);
 
 return (
-  <div>
-    <div>
+  <div className='container-md' style= {cardContainerStyle}>
+    { exhibitionCards }
+    {/* <div>
       <h1>Featured Online Exhibitions</h1>
     </div>
     <div style={{
@@ -201,7 +214,7 @@ return (
       </div>
       <div></div>
       <p>Create an account, browse the collection and curate your own online exhibition.</p>
-      <button>Get Started</button>
+      <button>Get Started</button> */}
       </div>
     )
   };
