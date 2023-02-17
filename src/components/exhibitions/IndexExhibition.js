@@ -108,8 +108,16 @@ const exhibitionCards = exhibitions.map(exhibition => (
 );
 
   return (
-    <div className='container-md' style= {cardContainerStyle}>
-      { exhibitionCards }
+    <div className='container-md p-4'>
+      <h1>All Exhibitions</h1>
+      <div className='my-4'>
+        <Link to={`/exhibitions/create`} className='btn btn-success'>Create Exhibition</Link>
+        <Link to={`/exhibitions/mine`} className='btn btn-primary mx-4'>My Exhibitions</Link>
+      </div>
+      
+      <div style= {cardContainerStyle}>
+        { exhibitionCards }
+      </div>
     </div>
   )
 };
