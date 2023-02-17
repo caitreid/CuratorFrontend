@@ -19,7 +19,7 @@ const IndexArtworks = (props) => {
     const { msgAlert } = props
 
     useEffect(() => {
-        // set to 50 artworks for now. can change to whatever we want.
+        
         getArtworks(50)
             .then((res) => setArtworks(res.artworks))
             .catch((err) => {
