@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import Card from 'react-bootstrap/Card'
-import {  apiArtUrl } from "../../apiConfigArt"
+// import Card from 'react-bootstrap/Card'
+// import {  apiArtUrl } from "../../apiConfigArt"
 import { Link } from 'react-router-dom'
-import { render } from "@testing-library/react"
-import { getAllArtworks } from "../../api/artworks"
+// import { render } from "@testing-library/react"
+import { getArtworks } from "../../api/artworks"
 
 const cardContainerStyle = {
     display: 'flex',
@@ -15,12 +15,12 @@ const IndexArtworks = (props) => {
 
     const [ artworks, setArtworks ] = useState(null)
     const [error, setError] = useState(false)
-    console.log('these are the artworks in index', artworks)
+    // console.log('these are the artworks in index', artworks)
     const { msgAlert } = props
 
     useEffect(() => {
         // set to 50 artworks for now. can change to whatever we want.
-        getAllArtworks(50)
+        getArtworks(50)
             .then((res) => setArtworks(res.artworks))
             .catch((err) => {
                 msgAlert({
@@ -45,16 +45,16 @@ const IndexArtworks = (props) => {
     }
 
     const artworkCards = artworks.map((artwork) => (
-        <Card key={ artwork.id } style={{ backgroundImage: `url(${artwork.img})`, width: '30%', margin: 5 }}>
-            <Card.Header>{ artwork.title }</Card.Header>
-            <Card.Body>
-                <Card.Text>
-                    <p>Department: { artwork.department }</p>
-                    <p>Type: { artwork.type }</p>
-                </Card.Text>
+        <div className="artwork artwork__card" key={ artwork.id }>
+            {/* <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div> */}
+            <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div>
+            <div className="artwork__text">
+                <p className="artwork__text--title">{ artwork.title }</p>
+                <p>{ artwork.department }</p>   
+                <Link to={ `/artworks/${artwork.id}` }>See Artwork</Link>
                 
-            </Card.Body>
-        </Card>
+            </div>
+        </div>
     ))
 
 
@@ -67,4 +67,4 @@ const IndexArtworks = (props) => {
 
 }
 
-export default IndexArtworks;
+export default IndexArtworks

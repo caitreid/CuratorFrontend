@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { getAllDepartments } from '../../api/departments'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom';
@@ -13,15 +13,6 @@ const IndexDepartment = (props) => {
       .catch(err => console.log(err))
   }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
-
-  const handleClick = (e) => {
-    e.preventDefault()
-    const title = e.target.innerText
-    const searchTitle = title.split(' ').join('%20')
-    console.log('searchTitle: ', searchTitle)  
-    
-  } 
-
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
@@ -30,11 +21,13 @@ const IndexDepartment = (props) => {
   }
 
   if (!departments) {
-    // if no pets loaded yet, display 'loading'
+
     return <p>Loading...</p>
+
   } else if (departments.length === 0) {
-    // otherwise if there ARE no pets, display that message
+
     return <p>No departments yet, go add some!</p>
+
   }
   // cards aren't rendering
   const departmentCards = departments.map(department => (
@@ -43,7 +36,6 @@ const IndexDepartment = (props) => {
         {department.name}
       </Card.Header>
       <Card.Footer>
-        {/* <button href={`/departments/${department._id}`} onClick={handleClick}>{department.name}</button> */}
         <Link to={`/departments/${department._id}`}>
           <button className='btn btn-light'>{department.name}</button>
         </Link>
@@ -57,12 +49,13 @@ const IndexDepartment = (props) => {
       <div>
         <h1>View Artworks</h1>
         <p>Search by Department</p>
-      </div>
-      <div className="card-container" style={ gridContainerStyle }>
-        { departmentCards }
+        <div className="card-container" style={ gridContainerStyle }>
+          { departmentCards }
+        </div>
       </div>
     </div>
   )
 };
+
 
 export default IndexDepartment;

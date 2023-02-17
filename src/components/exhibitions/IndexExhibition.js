@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
+//import IndexArtworks from '../artworks/IndexArtworks';
 
 const IndexExhibition = (props) => {
   // State to store the departments data
@@ -98,7 +99,7 @@ const exhibitionCardsTop = exhibitions.slice(0, 2).map(exhibition => (
 ));
 
 
-const exhibitionCardsBottom = exhibitions.slice(2, 5).map((exhibition, index) => (
+const exhibitionCardsBottom = exhibitions.slice(2, 10).map((exhibition, index) => (
   <Card
   key={exhibition.id}
   style={{
@@ -188,6 +189,12 @@ return (
       <div style={{ gridRow: "3", gridColumn: "1" }}>
         {exhibitionCardsBottom[3]}
       </div>
+      <div style={{ gridRow: "3", gridColumn: "2" }}>
+        {exhibitionCardsBottom[4]}
+      </div>
+      <div style={{ gridRow: "3", gridColumn: "3" }}>
+        {exhibitionCardsBottom[5]}
+      </div>
       </div>
       <div>
         <h3>Create Your Own Online Exhibition</h3>
@@ -200,4 +207,4 @@ return (
   };
  
 
-export default IndexExhibition;
+export default IndexExhibition
