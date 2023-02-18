@@ -62,7 +62,8 @@ const AddArtworks = (props) => {
 
     const artworkCards = artworks.map((artwork) => (
         <div className="artwork artwork__card" key={ artwork.id }>
-            {/* <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div> */}
+            {/* this line below works if we uncomment it and comment the other. fixed url */}
+            {/* <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img['url']})`}}></div> */}
             <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div>
             <div className="artwork__text">
                 <p className="artwork__text--title">{ artwork.title }</p>

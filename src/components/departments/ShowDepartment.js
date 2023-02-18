@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getOneDepartment } from '../../api/departments'
 import { getOneDepartmentArtworks } from "../../api/departments"
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card'
 
 
 const ShowDepartment = (props) => {
@@ -67,18 +68,29 @@ const ShowDepartment = (props) => {
 
         artworkCards = artworks.map((work) => (
             <div key={ work.id }>
-                <div style={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundImage: `url(${work.img})`, width: '250px', height: '250px'}}></div>
+
+                {/* <div style={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundImage: `url(${work.img})`, width: '250px', height: '250px'}}></div>
                 <p><b> { work.title } </b></p>
-                <p> { work.date } </p>
+                <p> { work.date } </p> */}
+
+                <Card className="department__card"  >
+                    <div className="department__image" style={{ backgroundImage: `url(${work.img})`}} >
+                    </div>
+                </Card>
+                <p className="department__text mb-0" >
+                { work.title }
+                </p>
+                <p className="department__text" style={{ fontWeight: 'normal' }}> { work.date } </p>
+        
             </div>
         ))
         
     
         return (
-            <div className="container-md m-4">
+            <div className="container-md m-3">
 
-                <h1>{ department.name }</h1>
-                <div style={{ margin: '2rem', backgroundRepeat: 'no-repeat', backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div>
+                <h1 className="mb-5 ms-4">{ department.name }</h1>
+                {/* <div style={{ margin: '2rem 25%', backgroundRepeat: 'no-repeat', backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div> */}
 
 
             

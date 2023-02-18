@@ -12566,7 +12566,7 @@ progress {
   height: 100%;
 }
 .department__text {
-  margin-left: 12px;
+  text-align: center;
   width: 250px;
   font-weight: bold;
   color: black;
