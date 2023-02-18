@@ -14,9 +14,14 @@ const IndexDepartment = (props) => {
   }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
   const gridContainerStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "1rem",
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    
+    // display: "grid",
+    // gridTemplateColumns: "repeat(4, 1fr)",
+    
+    gap: ".5rem",
     width: '100%'
   }
 
@@ -31,24 +36,27 @@ const IndexDepartment = (props) => {
   }
   // cards aren't rendering
   const departmentCards = departments.map(department => (
-    <Card key={department.id} style={{ backgroundImage: `url(${department.img})`, width: "250px" }}>
-      <Card.Header>
+    <>
+      <Link to={`/departments/${department._id}`} style={{textDecoration: 'none'}}>
+        <Card className="department__card" key={department.id} >
+          <div className="department__image" style={{ backgroundImage: `url(${department.img})`}} >
+
+          </div>
+         
+        </Card>
+        <p className="department__text" >
         {department.name}
-      </Card.Header>
-      <Card.Footer>
-        <Link to={`/departments/${department._id}`}>
-          <button className='btn btn-light'>{department.name}</button>
-        </Link>
-      </Card.Footer>
-    </Card>
+        </p>
+      </Link>
+    </>
   ))
 
 
   return (
     <div className="container-md m-4">
       <div>
-        <h1>View Artworks</h1>
-        <p>Search by Department</p>
+        <h2 className='ms-4 mb-4'>Browse by Department</h2>
+        
         <div className="card-container" style={ gridContainerStyle }>
           { departmentCards }
         </div>

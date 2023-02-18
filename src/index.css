@@ -12522,4 +12522,55 @@ progress {
   font-weight: bold;
 }
 
+.exhibition__card {
+  margin: 1rem;
+  max-width: 15rem;
+}
+.exhibition__image {
+  height: 20rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.exhibition__text {
+  margin: 1rem 0;
+  text-align: left;
+  line-height: 1rem;
+}
+.exhibition__text--title {
+  font-weight: bold;
+}
+.exhibition__text--extitle {
+  font-weight: bold;
+  font-size: 40px;
+}
+.exhibition__text--body {
+  font-size: 11px;
+}
+.exhibition__text--body p {
+  margin: 0;
+}
+
+.department__card {
+  margin: 0.5rem;
+  width: 250px;
+  height: 200px;
+  border: none;
+  background-color: rgb(242, 242, 242);
+}
+.department__image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+}
+.department__text {
+  text-align: center;
+  width: 250px;
+  font-weight: bold;
+  color: black;
+  overflow-wrap: break-word;
+}
+
 /*# sourceMappingURL=index.css.map */

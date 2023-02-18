@@ -69,23 +69,18 @@ const AddArtworks = (props) => {
                 <Button
                 artwork={artwork}
                 data={artwork.id}
-                // onClick={() => (somefunc(artwork))}
                 onClick={() => (somefunc(artwork))}
                 >          
                 Add Artwork
-                
-                </Button>
-                
+                </Button>  
             </div>
         </div>
     ))
-
 
     return (
         <div className="container-md" style={ cardContainerStyle }>
             { artworkCards }
         </div>
-        
     )
 
 }

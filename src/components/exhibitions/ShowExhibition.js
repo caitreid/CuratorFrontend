@@ -9,23 +9,21 @@ import { Container, Card } from 'react-bootstrap';
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
+    const [updated, setUpdated] = useState(false)
     const { id } = useParams()
     const { msgAlert } = props
 
-    // const cardContainerStyle = {
-    //     display: 'flex',
-    //     flexFlow: 'row wrap'
-    // }
 
+        console.log('this is ex', exhibition)
     
 
-            useEffect(() => {
-                
+        useEffect(() => {
+            
             getOneExhibition(id)
-                .then(res => setExhibition(res.data.exhibiton))
+                .then((res) => setExhibition(res.data.exhibition))
                 .catch(err => console.log('this is err from ShowExhibition: ', err))
 
-        }, [])
+            }, [updated])
      
     // if error, display an error
 
@@ -36,37 +34,49 @@ const ShowExhibition = (props) => {
         return <p>No exhibitions yet!</p>
     }
 
+    let artCards;
 
-    // let artworkCards;
+    if (exhibition) {
+        if(exhibition.artworks.length > 0) {
+            artCards = exhibition.artworks.map(art => (
 
-    // if (artworks) {
-
-    //     artworkCards = exhibition.map((exhibition) => (
-    //         <div key={ exhibition.id }>
-    //             <div style={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundImage: `url(${exhibition.img})`, width: '250px', height: '250px'}}></div>
-    //             <p><b> { exhibition.title } </b></p>
-    //             <p> { exhibition.date } </p>
-    //         </div>
-    //     ))
-        
+                <div >
+                    <br/>
+                    <img className="exhibition__image" src={art.img}>
+                    </img><br/>
+                    <span className="exhibition__text--title">
+                    {art.title}<br/>
+                    </span>
+                    <div className="exhibition__text--body">
+                    <p>
+                    {art.description}
+                    </p>
+                    <p>{art.date}</p>
+                    <p>{art.artist}</p>
+                    <p>{art.dimensions}</p>
+                    <p>{art.medium}</p>
+                    <p>{art.department}</p>
+                    
+                    </div>
+                </div>
+ 
+            ))
+    }}
     
         return (
 
 
-                <>
-                    <Container>
-                        <Card>
-                    <Card.Header>
-                    <h1>Title</h1>
-                    </Card.Header>
-
-
-                        </Card>
-                        
-
-                    </Container>
-                
-                </>
+        <div className="container-md">
+            <span className="exhibition__text--extitle"> {exhibition.title} </span><br/>
+             {exhibition.startDate}<br/>
+             {exhibition.endDate}<br/>
+            <img className="exhibition__image" src={exhibition.img}></img>    
+            <h6> { exhibition.description }</h6>
+            <div>
+            
+            {artCards}
+            </div>
+        </div>
 
             // <div className="container-md m-4">
 
