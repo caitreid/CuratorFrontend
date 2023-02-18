@@ -79,6 +79,8 @@ const ShowDepartment = (props) => {
 
                 <h1>{ department.name }</h1>
                 <div style={{ margin: '2rem', backgroundRepeat: 'no-repeat', backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div>
+
+
             
                 <div style={ gridContainerStyle }>
                     { artworkCards }  

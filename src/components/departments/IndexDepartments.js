@@ -39,9 +39,9 @@ const IndexDepartment = (props) => {
     <>
       <Link to={`/departments/${department._id}`} style={{textDecoration: 'none'}}>
         <Card className="department__card" key={department.id} >
-          <Card className="department__image" style={{ backgroundImage: `url(${department.img})`}} >
+          <div className="department__image" style={{ backgroundImage: `url(${department.img})`}} >
 
-          </Card>
+          </div>
          
         </Card>
         <p className="department__text" >
@@ -55,7 +55,7 @@ const IndexDepartment = (props) => {
   return (
     <div className="container-md m-4">
       <div>
-        <h2 className='ms-4'>Browse by Department</h2>
+        <h2 className='ms-4 mb-4'>Browse by Department</h2>
         
         <div className="card-container" style={ gridContainerStyle }>
           { departmentCards }

@@ -12556,9 +12556,12 @@ progress {
   width: 250px;
   height: 200px;
   border: none;
+  background-color: rgb(242, 242, 242);
 }
 .department__image {
-  object-fit: fill;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   width: 100%;
   height: 100%;
 }
