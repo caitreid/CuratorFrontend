@@ -100,11 +100,7 @@ const exhibitionCards = exhibitions.map(exhibition => (
         </div>
       </div>
     </Card>
-
-
 )
-
-
 );
 
   return (

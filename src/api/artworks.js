@@ -11,6 +11,7 @@ export const getArtworks = (limit, id) => {
     const params = {
             id: id,
             limit: limit,
+            skip: 18,
             has_image: 1
         };
         return axios(url, {params})
