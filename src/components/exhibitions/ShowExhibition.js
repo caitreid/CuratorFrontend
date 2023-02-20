@@ -98,6 +98,9 @@ const ShowExhibition = (props) => {
             <div className='mb-2'>{exhibition.startDate} - {exhibition.endDate}</div>
             <img className="exhibition__image mb-3" src={exhibition.img}></img>    
             <p>{ exhibition.description }</p>
+            <div>
+                { artCards }
+            </div>
             { 
                 user && user._id === exhibition.owner._id
                 ?
@@ -126,9 +129,7 @@ const ShowExhibition = (props) => {
                 :
                 <p>I'm logged out / I didn't create this exhibition</p>
             }
-            <div>
-                { artCards }
-            </div>
+            
             <div>
             <EditExhibitionModal 
                 user={user}
