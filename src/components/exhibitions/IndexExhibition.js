@@ -43,6 +43,9 @@ if (!exhibitions) {
 
 
 const exhibitionCards = exhibitions.map(exhibition => (
+  <div key={exhibition.id}>
+
+
   <Link to={`/exhibitions/${exhibition._id}`} style={{textDecoration: 'none'}}>
       <Card
       className="department__card"
@@ -107,6 +110,7 @@ const exhibitionCards = exhibitions.map(exhibition => (
     </h2>
     </div>
     </Link>
+  </div>
 )
 );
 
