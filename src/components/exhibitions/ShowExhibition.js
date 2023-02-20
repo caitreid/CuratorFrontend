@@ -105,13 +105,14 @@ const ShowExhibition = (props) => {
                         className="btn btn-warning"
                         onClick={() => deleteExhibition()}
                     >    
-                            Delete Exhibition 
+                        Delete Exhibition 
                     </button>
 
                     {/* <button className='btn btn-success'>Add Artworks</button> */}
                     <AddArtworks
                         msgAlert={msgAlert}
                         exhibition={exhibition}
+                        triggerRefresh={() => setUpdated(prev => !prev)}
                     />
                 </div>
                 :
