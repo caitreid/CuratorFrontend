@@ -74,7 +74,7 @@ const CreateExhibition = (props) => {
             handleSubmit={onSubmit}
             heading="Create a New Exhibition!"
             />
-        <AddArtworks/>
+        {/* <AddArtworks/> */}
         </>
     )
 }
