@@ -115,15 +115,13 @@ const exhibitionCards = exhibitions.map(exhibition => (
 );
 
   return (
-    <div className='container-md m-4'>
-        <div>
-        <h2 className='ms-4 mb-4'>Browse by Exhibition</h2>
-        
-        <div className="card-container" style= {cardContainerStyle}>
+    <div className='container-md m-4 p-2'>
+        <h2 className='my-2'>Browse by Exhibition</h2>
+        <Link className='btn btn-dark my-3' to="/exhibitions/create">Create Exhibition +</Link>
 
-        { exhibitionCards }
+        <div className="card-container" style= {cardContainerStyle}>
+          { exhibitionCards }
         </div>
-      </div>
     </div>
   )
 }
