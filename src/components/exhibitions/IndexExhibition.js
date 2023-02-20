@@ -11,6 +11,7 @@ const cardContainerStyle = {
   display: 'flex',
   flexFlow: 'row wrap',
   justifyContent: 'center',
+  width: '100%'
   
 }
 
@@ -42,44 +43,38 @@ if (!exhibitions) {
 
 
 const exhibitionCards = exhibitions.map(exhibition => (
+  <Link to={`/exhibitions/${exhibition._id}`} style={{textDecoration: 'none'}}>
       <Card
+      className="department__card"
         key={exhibition.id}
         
         style={{
-          width: '30%',
-          margin: 5,
-          // background: "#fff",
+          margin: 20,
           boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
           borderRadius: "10px",
-          overflow: "hidden"
-          // position: "relative"
+          overflow: "hidden",
+          width: '250px',
+          height: '200px'
 
       }}
     >
       <div
         style={{
+          
           backgroundImage: `url(${exhibition.img})`,
           backgroundSize: "cover",
-          height: "250px"
+          height: "250px",
+          width: '300px'
         }}
       />
       <div
         style={{
-          padding: "20px",
-          height: "20%",
+          padding: "5px",
+          height: "10%",
           position: "relative"
         }}
       >
-        <h2
-          style={{
-            fontWeight: "bold",
-            fontSize: "18px",
-            marginBottom: "5px",
-            color: "#000"
-          }}
-        >
-          {exhibition.title}
-        </h2>
+
         <div
           style={{
             position: "absolute",
@@ -93,24 +88,40 @@ const exhibitionCards = exhibitions.map(exhibition => (
           }}
         >
           
-          <div>
-            <div>{exhibition.startDate}</div>
-            <div>{exhibition.endDate}</div>
-          </div>
+
         </div>
       </div>
     </Card>
+    <div className='ms-4 mb-4'>
+            <div>{exhibition.startDate}</div>
+            <div>{exhibition.endDate}</div>
+    <h2
+          style={{
+            fontWeight: "bold",
+            fontSize: "18px",
+            marginBottom: "5px",
+            color: "#000"
+          }}
+        >
+          {exhibition.title}
+    </h2>
+    </div>
+    </Link>
 )
 );
 
   return (
-    <div className='container-md' style= {cardContainerStyle}>
-      { exhibitionCards }
-        </div>
-      
-      
-      )
+    <div className='container-md m-4'>
+        <div>
+        <h2 className='ms-4 mb-4'>Browse by Exhibition</h2>
+        
+        <div className="card-container" style= {cardContainerStyle}>
 
+        { exhibitionCards }
+        </div>
+      </div>
+    </div>
+  )
 }
 export default IndexExhibition
 
