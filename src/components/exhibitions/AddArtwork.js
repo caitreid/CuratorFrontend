@@ -21,7 +21,7 @@ const AddArtworks = (props) => {
     // console.log('these are the artworks in index', artworks)
     const { msgAlert, exhibition } = props
 
-    // console.log('props on AddArtworks', props)
+    console.log('props on AddArtworks', props)
 
     useEffect(() => {
         
@@ -64,10 +64,9 @@ const AddArtworks = (props) => {
 
     const onClick = (e) => {
         e.preventDefault()
+
         addArtwork(exhibition._id, artArray)
-            // first we'll close the modal
-            // .then(() => triggerRefresh())
-            // we'll also send a success message
+            // console.log('exhibition._id inside addArtwork', exhibition._id)
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',

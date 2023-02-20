@@ -44,7 +44,7 @@ export const addArtwork = (exhibitionId, newArtwork) => {
     return axios({
         url: `${apiUrl}/artworks/${exhibitionId}`,
         method: 'POST',
-        data: { artworks: {title: 'test'} }
+        data: { artworks: newArtwork }
     })
 }
 
