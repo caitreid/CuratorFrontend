@@ -48,7 +48,7 @@ const CreateExhibition = (props) => {
             // should go to an ADD ARTWORKS PAGE next so that the user can add art to this exhibition id
             // probably /exhibtions/exhibitionID/addArt
             // fix later 
-            .then(res => { navigate(`/exhibitions/add-artworks`)})
+            .then(res => { navigate(`/exhibitions/${res.data.exhibition._id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
