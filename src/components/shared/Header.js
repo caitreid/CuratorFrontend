@@ -10,7 +10,7 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<NavLink to='create-exhibition' style={linkStyle}>
+		<NavLink to='exhibitions/create' style={linkStyle}>
 			Create New Exhibition
 		</NavLink>
 		<NavLink to='add-artworks' style={linkStyle}>

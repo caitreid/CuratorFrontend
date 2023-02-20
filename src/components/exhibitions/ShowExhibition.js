@@ -14,7 +14,6 @@ const ShowExhibition = (props) => {
     const { id } = useParams()
     const { msgAlert, user } = props
     console.log('user in ShowExhibition props', user)
-    // console.log('msgAlert in ShowExhibition props', msgAlert)
 
     console.log('this is exhibition in ShowExhibition props', exhibition)
     
@@ -37,18 +36,14 @@ const ShowExhibition = (props) => {
         return <p>No exhibitions yet!</p>
     }
 
-    // if (user._id) {
-    //     console.log('user: ', user._id, 'exhibition owner: ', exhibition.owner._id)
-    // }
-    
 
     let artCards;
 
     if (exhibition) {
         if(exhibition.artworks.length > 0) {
-            artCards = exhibition.artworks.map(art => (
+            artCards = exhibition.artworks.map((art, id) => (
 
-                <div key={art.id} >
+                <div key={id} >
                     <br/>
                     <img className="exhibition__image" src={art.img}>
                     </img><br/>
@@ -101,7 +96,7 @@ const ShowExhibition = (props) => {
             <img className="exhibition__image" src={exhibition.img}></img>    
             <p>{ exhibition.description }</p>
             { 
-                user._id === exhibition.owner._id
+                user && user._id === exhibition.owner._id
                 ?
                 <div>
                     <p>I created this exhibition</p>

@@ -79,7 +79,7 @@ const App = () => {
 					/>
 					
 					<Route
-						path='/create-exhibition'
+						path='/exhibitions/create'
 						element={
 						<RequireAuth user={user}>
 							<CreateExhibition msgAlert={msgAlert} user={user} />

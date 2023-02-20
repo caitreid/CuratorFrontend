@@ -78,7 +78,7 @@ const ExhibitionForm = (props) => {
                     exhibition={exhibition}
                     className='m-2' 
                     type='submit'>
-                        Submit and ADD Artwork
+                        Submit
                  </Button>
 
             </Form>
