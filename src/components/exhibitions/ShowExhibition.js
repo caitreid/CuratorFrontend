@@ -11,10 +11,11 @@ const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
     const [updated, setUpdated] = useState(false)
     const { id } = useParams()
-    const { msgAlert } = props
+    const { msgAlert, user } = props
+    console.log('user in ShowExhibition props', user)
+    console.log('msgAlert in ShowExhibition props', msgAlert)
 
-
-        console.log('this is ex', exhibition)
+    console.log('this is exhibition in ShowExhibition props', exhibition)
     
 
         useEffect(() => {
@@ -33,6 +34,8 @@ const ShowExhibition = (props) => {
     } else if (exhibition.length === 0) {
         return <p>No exhibitions yet!</p>
     }
+
+    console.log('user: ', user._id, 'exhibition owner: ', exhibition.owner._id)
 
     let artCards;
 
@@ -61,35 +64,29 @@ const ShowExhibition = (props) => {
                 </div>
  
             ))
-    }}
-    
-        return (
-
-
+        }
+    }
+    return(
         <div className="container-md">
-            <span className="exhibition__text--extitle"> {exhibition.title} </span><br/>
-             {exhibition.startDate}<br/>
-             {exhibition.endDate}<br/>
+            <span className="exhibition__text--extitle"> {exhibition.title} </span>
+            <div>{exhibition.startDate}</div>
+            <div>{exhibition.endDate}</div>
             <img className="exhibition__image" src={exhibition.img}></img>    
-            <h6> { exhibition.description }</h6>
-            <div>
+            <p>{ exhibition.description }</p>
+            {
+                user._id === exhibition.owner._id
+                ?
+                <p>I created this exhibition</p>
+                :
+                <p>I didn't create this exhibition</p>
+            }
             
-            {artCards}
+
+            <div>
+                {artCards}
             </div>
         </div>
-
-            // <div className="container-md m-4">
-
-            //     <h1>{ exhibition.title }</h1>
-            //     <div style={{ margin: '2rem', backgroundRepeat: 'no-repeat', backgroundImage: `url(${exhibition.img})`, width: '100%', padding: '10rem'}}></div>
-            
-            //     <div style={ gridContainerStyle }>
-            //         { artworkCards }  
-            //     </div>
-            //     <Link to="/exhibition">Return to Exhibition</Link>
-            // </div>
-        )
-    }
-    
+    )
+}
 
 export default ShowExhibition
