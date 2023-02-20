@@ -63,10 +63,10 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-					<Route path='/exhibitions' element={ <IndexExhibitions />} />
-					<Route path='/exhibitions/:id' element={ <ShowExhibition />} />
-					<Route path='/departments' element={ <IndexDepartments />} />
-					<Route path='/departments/:id' element={ <ShowDepartment />} />
+					<Route path='/exhibitions' element={ <IndexExhibitions user={user} />}  />
+					<Route path='/exhibitions/:id' element={ <ShowExhibition user={user} />}   />
+					<Route path='/departments' element={ <IndexDepartments user={user} />}  />
+					<Route path='/departments/:id' element={ <ShowDepartment user={user} />}  />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
 					
 					<Route
