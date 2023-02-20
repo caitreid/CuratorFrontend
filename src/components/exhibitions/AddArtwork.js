@@ -19,7 +19,7 @@ const AddArtworks = (props) => {
     const [error, setError] = useState(false)
     const [ artArray, setArtArray] = useState([])   
     // console.log('these are the artworks in index', artworks)
-    const { msgAlert, exhibition } = props
+    const { msgAlert, exhibition, triggerRefresh } = props
 
     console.log('props on AddArtworks', props)
 
@@ -51,22 +51,22 @@ const AddArtworks = (props) => {
     
     // const [ artArray, setArtArray] = useState([])    
 
-    const somefunc = (artwork) => {
-        console.log('thsi is add', artwork)
-        // newart.push(artwork)
-        // setArtArray(artArray.push(artwork))
-        setArtArray(current => [
-            ...current, artwork
-        ])
-    }
+    // const somefunc = (artwork) => {
+    //     console.log('thsi is add', artwork)
+    //     // newart.push(artwork)
+    //     // setArtArray(artArray.push(artwork))
+    //     setArtArray(current => [
+    //         ...current, artwork
+    //     ])
+    // }
 
-    console.log('this is artArray', artArray)
+    // console.log('this is artArray', artArray)
 
-    const onClick = (e) => {
+    const onClick = (e, artwork) => {
         e.preventDefault()
 
-        addArtwork(exhibition._id, artArray)
-            // console.log('exhibition._id inside addArtwork', exhibition._id)
+        addArtwork(exhibition._id, artwork)
+            .then(() => triggerRefresh())
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
@@ -74,7 +74,7 @@ const AddArtworks = (props) => {
                     variant: 'success'
                 })
             })
-            // .then(() => triggerRefresh())
+            .then(() => triggerRefresh())
             // if there is an error, tell the user about it
             .catch(() => {
                 msgAlert({
@@ -97,7 +97,8 @@ const AddArtworks = (props) => {
                 artwork={artwork}
                 data={artwork.id}
                 // onClick={() => (somefunc(artwork))}
-                onClick={() => (somefunc(artwork))}
+                onClick={(e) => onClick(e, artwork)}
+                // onClick={() => (somefunc(artwork))}
                 >          
                 Add Artwork
                 
