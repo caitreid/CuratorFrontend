@@ -40,7 +40,7 @@ const ShowExhibition = (props) => {
         if(exhibition.artworks.length > 0) {
             artCards = exhibition.artworks.map(art => (
 
-                <div >
+                <div key={art.id} >
                     <br/>
                     <img className="exhibition__image" src={art.img}>
                     </img><br/>
