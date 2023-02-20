@@ -98,7 +98,9 @@ const ShowExhibition = (props) => {
             <div className='mb-2'>{exhibition.startDate} - {exhibition.endDate}</div>
             <img className="exhibition__image mb-3" src={exhibition.img}></img>    
             <p>{ exhibition.description }</p>
-            <div>
+            
+            
+            <div className="exhibition__cards">
                 { artCards }
             </div>
             { 
