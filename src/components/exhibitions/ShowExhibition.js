@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import Card from 'react-bootstrap/Card'
-import { getOneExhibition, removeExhibition } from '../../api/exhibition'
+import { getOneExhibition, removeExhibition, updateExhibition } from '../../api/exhibition'
 import { getOneExhibitionArtworks} from '../../api/exhibition'
 import { Link } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
 import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import AddArtworks from './AddArtwork';
+import EditExhibitionModal from './EditExhibitionModal';
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
@@ -15,6 +16,9 @@ const ShowExhibition = (props) => {
     const { id } = useParams()
     const { msgAlert, user } = props
     console.log('user in ShowExhibition props', user)
+    
+    const [editModalShow, setEditModalShow] = useState(false)
+    const [exhibitionModalShow, setExhibitionModalShow] = useState(false)
 
     console.log('this is exhibition in ShowExhibition props', exhibition)
     
@@ -108,6 +112,12 @@ const ShowExhibition = (props) => {
                         Delete Exhibition 
                     </button>
 
+                    <button 
+                        onClick={() => setEditModalShow(true)}
+                        className='btn btn-success'>
+                            Edit Exhibition
+                    </button>
+
                     {/* <button className='btn btn-success'>Add Artworks</button> */}
                     <AddArtworks
                         msgAlert={msgAlert}
@@ -120,6 +130,17 @@ const ShowExhibition = (props) => {
             }
             <div>
                 { artCards }
+            </div>
+            <div>
+            <EditExhibitionModal 
+                user={user}
+                show={editModalShow}
+                handleClose={() => setEditModalShow(false)}
+                updateExhibition={updateExhibition}
+                msgAlert={msgAlert}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+                exhibition={exhibition}
+            />
             </div>
         </div>
     )
