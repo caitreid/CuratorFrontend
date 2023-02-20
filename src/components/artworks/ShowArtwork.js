@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react"
-// import Card from 'react-bootstrap/Card'
-// import { Link } from 'react-router-dom'
-// import { render } from "@testing-library/react"
 import { getArtworks } from "../../api/artworks"
 import { useParams } from 'react-router-dom'
 
-// const cardContainerStyle = {
-//     display: 'flex',
-//     flexFlow: 'row wrap',
-//     justifyContent: 'center'
-// }
+
 
 const ShowArtwork = (props) => {
 
@@ -21,7 +14,6 @@ const ShowArtwork = (props) => {
     const { id } = useParams()
 
     console.log('id', id)
-    // const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -66,8 +58,6 @@ const ShowArtwork = (props) => {
                     <p>{ item.desc }</p>
                 </div>
             </div>
-            
-            
         )
     }
     

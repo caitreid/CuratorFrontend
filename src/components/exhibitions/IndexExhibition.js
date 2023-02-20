@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
 import { Link, Route, Switch } from 'react-router-dom'
 import ShowExhibition from './ShowExhibition'
-//import IndexArtworks from '../artworks/IndexArtworks';
+
 
 
 const cardContainerStyle = {
@@ -31,7 +30,7 @@ const IndexExhibition = (props) => {
     // if no data is loaded yet, display 'loading'
     return <p>Loading...</p>
   } else if (exhibitions.length === 0) {
-    // otherwise if there ARE no pets, display that message
+    // otherwise if there ARE no exhibitions, display that message
     return <p>No exhibitions yet, go add some!</p>
   }
 

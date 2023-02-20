@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-// import Card from 'react-bootstrap/Card'
 import { getOneExhibition, removeExhibition, updateExhibition } from '../../api/exhibition'
 import { getOneExhibitionArtworks} from '../../api/exhibition'
 import { Link } from 'react-router-dom';
@@ -117,7 +116,7 @@ const ShowExhibition = (props) => {
                             Edit Exhibition
                     </button>
 
-                    {/* <button className='btn btn-success'>Add Artworks</button> */}
+ 
                     <AddArtworks
                         msgAlert={msgAlert}
                         exhibition={exhibition}
