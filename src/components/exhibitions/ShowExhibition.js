@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import Card from 'react-bootstrap/Card'
-import { getOneExhibition } from '../../api/exhibition'
+import { getOneExhibition, removeExhibition } from '../../api/exhibition'
 import { getOneExhibitionArtworks} from '../../api/exhibition'
 import { Link } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
-
+import messages from '../shared/AutoDismissAlert/messages'
+import { useNavigate } from 'react-router-dom'
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
@@ -13,18 +14,19 @@ const ShowExhibition = (props) => {
     const { id } = useParams()
     const { msgAlert, user } = props
     console.log('user in ShowExhibition props', user)
-    console.log('msgAlert in ShowExhibition props', msgAlert)
+    // console.log('msgAlert in ShowExhibition props', msgAlert)
 
     console.log('this is exhibition in ShowExhibition props', exhibition)
     
+    const navigate = useNavigate()
 
-        useEffect(() => {
-            
-            getOneExhibition(id)
-                .then((res) => setExhibition(res.data.exhibition))
-                .catch(err => console.log('this is err from ShowExhibition: ', err))
+    useEffect(() => {
+        
+        getOneExhibition(id)
+            .then((res) => setExhibition(res.data.exhibition))
+            .catch(err => console.log('this is err from ShowExhibition: ', err))
 
-            }, [updated])
+        }, [updated])
      
     // if error, display an error
 
@@ -35,7 +37,10 @@ const ShowExhibition = (props) => {
         return <p>No exhibitions yet!</p>
     }
 
-    console.log('user: ', user._id, 'exhibition owner: ', exhibition.owner._id)
+    // if (user._id) {
+    //     console.log('user: ', user._id, 'exhibition owner: ', exhibition.owner._id)
+    // }
+    
 
     let artCards;
 
@@ -66,6 +71,28 @@ const ShowExhibition = (props) => {
             ))
         }
     }
+
+    const deleteExhibition =() => {
+        removeExhibition(user, exhibition._id)
+            // upon success, send the appropriate message and redirect users
+            .then(() => {
+                msgAlert({
+                    heading: 'Success',
+                    message: messages.removeExhibitionSuccess,
+                    variant: 'success'
+                })
+            })
+            .then(() => {navigate('/exhibitions')})
+            // upon failure, just send a message, no navigation required
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error',
+                    message: messages.removeExhibitionFailure,
+                    variant: 'danger'
+                })
+            })
+    }
+
     return(
         <div className="container-md">
             <span className="exhibition__text--extitle"> {exhibition.title} </span>
@@ -73,15 +100,23 @@ const ShowExhibition = (props) => {
             <div>{exhibition.endDate}</div>
             <img className="exhibition__image" src={exhibition.img}></img>    
             <p>{ exhibition.description }</p>
-            {
+            { 
                 user._id === exhibition.owner._id
                 ?
-                <p>I created this exhibition</p>
-                :
-                <p>I didn't create this exhibition</p>
-            }
-            
+                <div>
+                    <p>I created this exhibition</p>
+                    <button 
+                        className="btn btn-warning"
+                        onClick={() => deleteExhibition()}
+                    >    
+                            Delete Exhibition 
+                    </button>
 
+                    <button className='btn btn-success'>Add Artworks</button>
+                </div>
+                :
+                <p>I'm logged out / I didn't create this exhibition</p>
+            }
             <div>
                 {artCards}
             </div>
