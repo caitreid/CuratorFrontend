@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
 import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
+import AddArtworks from './AddArtwork';
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
@@ -107,13 +108,17 @@ const ShowExhibition = (props) => {
                             Delete Exhibition 
                     </button>
 
-                    <button className='btn btn-success'>Add Artworks</button>
+                    {/* <button className='btn btn-success'>Add Artworks</button> */}
+                    <AddArtworks
+                        msgAlert={msgAlert}
+                        exhibition={exhibition}
+                    />
                 </div>
                 :
                 <p>I'm logged out / I didn't create this exhibition</p>
             }
             <div>
-                {artCards}
+                { artCards }
             </div>
         </div>
     )
