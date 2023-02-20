@@ -1,29 +1,32 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import Card from 'react-bootstrap/Card'
-import { getOneExhibition } from '../../api/exhibition'
+import { getOneExhibition, removeExhibition } from '../../api/exhibition'
 import { getOneExhibitionArtworks} from '../../api/exhibition'
 import { Link } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
-
+import messages from '../shared/AutoDismissAlert/messages'
+import { useNavigate } from 'react-router-dom'
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
     const [updated, setUpdated] = useState(false)
     const { id } = useParams()
-    const { msgAlert } = props
+    const { msgAlert, user } = props
+    console.log('user in ShowExhibition props', user)
+    // console.log('msgAlert in ShowExhibition props', msgAlert)
 
-
-        console.log('this is ex', exhibition)
+    console.log('this is exhibition in ShowExhibition props', exhibition)
     
+    const navigate = useNavigate()
 
-        useEffect(() => {
-            
-            getOneExhibition(id)
-                .then((res) => setExhibition(res.data.exhibition))
-                .catch(err => console.log('this is err from ShowExhibition: ', err))
+    useEffect(() => {
+        
+        getOneExhibition(id)
+            .then((res) => setExhibition(res.data.exhibition))
+            .catch(err => console.log('this is err from ShowExhibition: ', err))
 
-            }, [updated])
+        }, [updated])
      
     // if error, display an error
 
@@ -34,13 +37,18 @@ const ShowExhibition = (props) => {
         return <p>No exhibitions yet!</p>
     }
 
+    // if (user._id) {
+    //     console.log('user: ', user._id, 'exhibition owner: ', exhibition.owner._id)
+    // }
+    
+
     let artCards;
 
     if (exhibition) {
         if(exhibition.artworks.length > 0) {
             artCards = exhibition.artworks.map(art => (
 
-                <div >
+                <div key={art.id} >
                     <br/>
                     <img className="exhibition__image" src={art.img}>
                     </img><br/>
@@ -61,35 +69,59 @@ const ShowExhibition = (props) => {
                 </div>
  
             ))
-    }}
-    
-        return (
+        }
+    }
 
+    const deleteExhibition =() => {
+        removeExhibition(user, exhibition._id)
+            // upon success, send the appropriate message and redirect users
+            .then(() => {
+                msgAlert({
+                    heading: 'Success',
+                    message: messages.removeExhibitionSuccess,
+                    variant: 'success'
+                })
+            })
+            .then(() => {navigate('/exhibitions')})
+            // upon failure, just send a message, no navigation required
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error',
+                    message: messages.removeExhibitionFailure,
+                    variant: 'danger'
+                })
+            })
+    }
 
+    return(
         <div className="container-md">
-            <span className="exhibition__text--extitle"> {exhibition.title} </span><br/>
-             {exhibition.startDate}<br/>
-             {exhibition.endDate}<br/>
+            <span className="exhibition__text--extitle"> {exhibition.title} </span>
+            <div>{exhibition.startDate}</div>
+            <div>{exhibition.endDate}</div>
             <img className="exhibition__image" src={exhibition.img}></img>    
-            <h6> { exhibition.description }</h6>
+            <p>{ exhibition.description }</p>
+            { 
+                user._id === exhibition.owner._id
+                ?
+                <div>
+                    <p>I created this exhibition</p>
+                    <button 
+                        className="btn btn-warning"
+                        onClick={() => deleteExhibition()}
+                    >    
+                            Delete Exhibition 
+                    </button>
+
+                    <button className='btn btn-success'>Add Artworks</button>
+                </div>
+                :
+                <p>I'm logged out / I didn't create this exhibition</p>
+            }
             <div>
-            
-            {artCards}
+                {artCards}
             </div>
         </div>
-
-            // <div className="container-md m-4">
-
-            //     <h1>{ exhibition.title }</h1>
-            //     <div style={{ margin: '2rem', backgroundRepeat: 'no-repeat', backgroundImage: `url(${exhibition.img})`, width: '100%', padding: '10rem'}}></div>
-            
-            //     <div style={ gridContainerStyle }>
-            //         { artworkCards }  
-            //     </div>
-            //     <Link to="/exhibition">Return to Exhibition</Link>
-            // </div>
-        )
-    }
-    
+    )
+}
 
 export default ShowExhibition

@@ -31,7 +31,7 @@ import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibit
 
 const App = () => {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(false)
   const [exhibition, setExhibition] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
@@ -63,10 +63,10 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-					<Route path='/exhibitions' element={ <IndexExhibitions />} />
-					<Route path='/exhibitions/:id' element={ <ShowExhibition />} />
-					<Route path='/departments' element={ <IndexDepartments />} />
-					<Route path='/departments/:id' element={ <ShowDepartment />} />
+					<Route path='/exhibitions' element={ <IndexExhibitions msgAlert={msgAlert} user={user} />}  />
+					<Route path='/exhibitions/:id' element={ <ShowExhibition msgAlert={msgAlert} user={user} />}   />
+					<Route path='/departments' element={ <IndexDepartments msgAlert={msgAlert} user={user} />}  />
+					<Route path='/departments/:id' element={ <ShowDepartment msgAlert={msgAlert} user={user} />}  />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
 					
 					<Route
