@@ -31,8 +31,8 @@ const IndexDepartment = (props) => {
 
   }
   // Render cards for each department
-  const departmentCards = departments.map(department => (
-    <>
+  const departmentCards = departments.map((department, id) => (
+    <div key={id}>
       <Link to={`/departments/${department._id}`} style={{textDecoration: 'none'}}>
         <Card className="department__card" key={department.id} >
           <div className="department__image" style={{ backgroundImage: `url(${department.img})`}} >
@@ -44,7 +44,7 @@ const IndexDepartment = (props) => {
         {department.name}
         </p>
       </Link>
-    </>
+    </div>
   ))
 
 

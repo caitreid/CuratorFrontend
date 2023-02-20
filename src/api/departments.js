@@ -12,6 +12,8 @@ export const getOneDepartment = async (id) => {
   return await axios(`${apiUrl}/departments/${id}`)
 }
 
+
+const defaultPic = { url: 'public/dickens-lin-zOkAWTyxO60-unsplash.jpg'}
 // axios call to clevelandArt API
 // add department title into param from button value in IndexDeparments?
 // then const searchTitle = title.split(' ').join('%20')?
@@ -33,7 +35,7 @@ export const getOneDepartmentArtworks = async(limit, name) => {
           dims: artwork.measurements,
           artist: artwork.creators.description,
           type: artwork.type,
-          img: artwork.images.web.url
+          img: artwork.images.web ? artwork.images.web['url'] : defaultPic
         }))
         return { artworks };
     })
