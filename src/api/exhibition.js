@@ -46,7 +46,7 @@ export const createExhibition = (user, newExhibition) => {
 export const updateExhibition = (user, updatedExhibition) => {
   return axios({
     // not sure if this is dot ID or not
-    url: `${apiUrl}/exhibitions/${updatedExhibition.id}`,
+    url: `${apiUrl}/exhibitions/${updatedExhibition._id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${user.token}`
