@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react"
 // import {  apiArtUrl } from "../../apiConfigArt"
 import { Link } from 'react-router-dom'
 // import { render } from "@testing-library/react"
-import { getArtworks } from "../../api/artworks"
+import { addArtwork, getArtworks } from "../../api/artworks"
 import { Button } from "react-bootstrap"
+import { addArtworkSuccess, addArtworkFailure } from '../shared/AutoDismissAlert/messages'
 
 const cardContainerStyle = {
     display: 'flex',
@@ -18,7 +19,9 @@ const AddArtworks = (props) => {
     const [error, setError] = useState(false)
     const [ artArray, setArtArray] = useState([])   
     // console.log('these are the artworks in index', artworks)
-    const { msgAlert } = props
+    const { msgAlert, exhibition, triggerRefresh } = props
+
+    console.log('props on AddArtworks', props)
 
     useEffect(() => {
         
@@ -48,23 +51,45 @@ const AddArtworks = (props) => {
     
     // const [ artArray, setArtArray] = useState([])    
 
-    const somefunc = (artwork) => {
-        console.log('thsi is add', artwork)
-        // newart.push(artwork)
-        // setArtArray(artArray.push(artwork))
-        setArtArray(current => [
-            ...current, artwork
-        ])
+    // const somefunc = (artwork) => {
+    //     console.log('thsi is add', artwork)
+    //     // newart.push(artwork)
+    //     // setArtArray(artArray.push(artwork))
+    //     setArtArray(current => [
+    //         ...current, artwork
+    //     ])
+    // }
 
-        console.log('this is new array', artArray)
-        //return newart.save()
+    // console.log('this is artArray', artArray)
+
+    const onClick = (e, artwork) => {
+        e.preventDefault()
+
+        addArtwork(exhibition._id, artwork)
+            .then(() => triggerRefresh())
+            .then(() => {
+                msgAlert({
+                    heading: 'Oh Yeah!',
+                    message: addArtworkSuccess,
+                    variant: 'success'
+                })
+            })
+            .then(() => triggerRefresh())
+            // if there is an error, tell the user about it
+            .catch(() => {
+                msgAlert({
+                    heading: 'Oh No!',
+                    message: addArtworkFailure,
+                    variant: 'danger'
+                })
+            })
     }
 
     const artworkCards = artworks.map((artwork) => (
         <div className="artwork artwork__card" key={ artwork.id }>
             {/* this line below works if we uncomment it and comment the other. fixed url */}
-            {/* <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img['url']})`}}></div> */}
-            <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div>
+            <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div>
+            {/* <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div> */}
             <div className="artwork__text">
                 <p className="artwork__text--title">{ artwork.title }</p>
                 <p>{ artwork.department }</p>   
@@ -72,7 +97,8 @@ const AddArtworks = (props) => {
                 artwork={artwork}
                 data={artwork.id}
                 // onClick={() => (somefunc(artwork))}
-                onClick={() => (somefunc(artwork))}
+                onClick={(e) => onClick(e, artwork)}
+                // onClick={() => (somefunc(artwork))}
                 >          
                 Add Artwork
                 
@@ -84,10 +110,15 @@ const AddArtworks = (props) => {
 
 
     return (
-        <div className="container-md" style={ cardContainerStyle }>
-            { artworkCards }
-        </div>
-        
+        <>
+            <div className="container-md" style={ cardContainerStyle }>
+                { artworkCards }
+            </div>
+            <button
+                className="btn btn-success"
+                onClick={(e) => onClick(e)}
+            >Add Art to Exhibition</button>
+        </>
     )
 
 }

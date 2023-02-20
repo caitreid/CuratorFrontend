@@ -6,16 +6,17 @@ import { Link, NavLink } from 'react-router-dom'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none',
-	margin: '0 .5rem'
+	// margin: '0 .5rem'
+	marginRight: '1rem',
 }
 const authenticatedOptions = (
 	<>
-		<NavLink to='exhibitions/create' style={linkStyle}>
+		{/* <NavLink to='exhibitions/create' style={linkStyle}>
 			Create New Exhibition
-		</NavLink>
-		<NavLink to='add-artworks' style={linkStyle}>
+		</NavLink> */}
+		{/* <NavLink to='add-artworks' style={linkStyle}>
 			Add Art to Exhibition
-		</NavLink>
+		</NavLink> */}
 		<NavLink to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>
