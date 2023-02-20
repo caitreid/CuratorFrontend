@@ -27,16 +27,13 @@ import AddArtworkToExhibition from './components/exhibitions/AddArtworkToExhibit
 
 
 
-// import IndexArtworks from './components/artworks/IndexArtworks'
-
 const App = () => {
 
   const [user, setUser] = useState(false)
   const [exhibition, setExhibition] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
-//   console.log('user in app', user)
-//   console.log('message alerts', msgAlerts)
+
   
   const clearUser = () => {
     console.log('clear user ran')

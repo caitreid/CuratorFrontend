@@ -1,20 +1,11 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-
+// READ show ALL exhibitions
 export const getAllExhibitions = () => {
     return axios(`${apiUrl}/exhibitions`);
 
 }
-
-// export const getOneExhibitionArtworks = () => {
-//   return axios(`${apiUrl}/exhibitions`);
-
-// }
-
-
-  
-// READ -- show My exhibitions page?
 
 
 // READ -- show ONE exhibition page?
@@ -30,8 +21,6 @@ export const createExhibition = (user, newExhibition) => {
     console.log('this is the new user ', user)
     console.log('this is the new exhibition ', newExhibition)
     return axios({
-        //do we want to show this on main exhibition page? AND on the user's own page too?
-
         url: `${apiUrl}/exhibitions`,
         method: 'POST',
         headers: {
@@ -56,7 +45,7 @@ export const updateExhibition = (user, updatedExhibition) => {
 }
 
 // DELETE - delete an exhibition 
-// Need a button on the index exhibition page
+
 
 export const removeExhibition = (user, exhibitionId) => {
   return axios({

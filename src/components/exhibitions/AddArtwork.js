@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react"
-// import Card from 'react-bootstrap/Card'
-// import {  apiArtUrl } from "../../apiConfigArt"
 import { Link } from 'react-router-dom'
-// import { render } from "@testing-library/react"
 import { addArtwork, getArtworks } from "../../api/artworks"
 import { Button } from "react-bootstrap"
 import { addArtworkSuccess, addArtworkFailure } from '../shared/AutoDismissAlert/messages'
@@ -18,7 +15,6 @@ const AddArtworks = (props) => {
     const [ artworks, setArtworks ] = useState(null)
     const [error, setError] = useState(false)
     const [ artArray, setArtArray] = useState([])   
-    // console.log('these are the artworks in index', artworks)
     const { msgAlert, exhibition, triggerRefresh } = props
 
     console.log('props on AddArtworks', props)
@@ -49,18 +45,6 @@ const AddArtworks = (props) => {
         return <p>No artworkss yet, go add some!</p>
     }
     
-    // const [ artArray, setArtArray] = useState([])    
-
-    // const somefunc = (artwork) => {
-    //     console.log('thsi is add', artwork)
-    //     // newart.push(artwork)
-    //     // setArtArray(artArray.push(artwork))
-    //     setArtArray(current => [
-    //         ...current, artwork
-    //     ])
-    // }
-
-    // console.log('this is artArray', artArray)
 
     const onClick = (e, artwork) => {
         e.preventDefault()
@@ -87,18 +71,16 @@ const AddArtworks = (props) => {
 
     const artworkCards = artworks.map((artwork) => (
         <div className="artwork artwork__card" key={ artwork.id }>
-            {/* this line below works if we uncomment it and comment the other. fixed url */}
+
             <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})`}}></div>
-            {/* <div className="artwork__image" style={{ backgroundColor: 'pink'}}></div> */}
+ 
             <div className="artwork__text">
                 <p className="artwork__text--title">{ artwork.title }</p>
                 <p>{ artwork.department }</p>   
                 <Button
                 artwork={artwork}
                 data={artwork.id}
-                // onClick={() => (somefunc(artwork))}
                 onClick={(e) => onClick(e, artwork)}
-                // onClick={() => (somefunc(artwork))}
                 >          
                 Add Artwork
                 

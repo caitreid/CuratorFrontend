@@ -6,17 +6,11 @@ import { Link, NavLink } from 'react-router-dom'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none',
-	// margin: '0 .5rem'
 	marginRight: '1rem',
 }
 const authenticatedOptions = (
 	<>
-		{/* <NavLink to='exhibitions/create' style={linkStyle}>
-			Create New Exhibition
-		</NavLink> */}
-		{/* <NavLink to='add-artworks' style={linkStyle}>
-			Add Art to Exhibition
-		</NavLink> */}
+
 		<NavLink to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>
@@ -45,7 +39,7 @@ const alwaysOptions = (
 		<NavLink to='/departments' style={linkStyle}>
 			Departments
 		</NavLink>
-		{/* For testing purposes, link to Artworks*/}
+
 		<NavLink to='/artworks' style={linkStyle}>
 			Artworks
 		</NavLink>

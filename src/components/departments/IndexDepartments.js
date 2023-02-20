@@ -30,7 +30,7 @@ const IndexDepartment = (props) => {
     return <p>No departments yet, go add some!</p>
 
   }
-  // cards aren't rendering
+  // Render cards for each department
   const departmentCards = departments.map(department => (
     <>
       <Link to={`/departments/${department._id}`} style={{textDecoration: 'none'}}>

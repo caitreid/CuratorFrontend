@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-// import Card from 'react-bootstrap/Card'
 import { getOneDepartment } from '../../api/departments'
 import { getOneDepartmentArtworks } from "../../api/departments"
 import { Link } from 'react-router-dom';
@@ -36,7 +35,7 @@ const ShowDepartment = (props) => {
     }, [])
     
     if (department) {
-        // set to 20 artworks for now. can change to whatever we want.
+        
         getOneDepartmentArtworks(20, department.name)
             .then((res) => setArtworks(res.artworks))
             .catch((err) => {
@@ -69,10 +68,6 @@ const ShowDepartment = (props) => {
         artworkCards = artworks.map((work) => (
             <div key={ work.id }>
 
-                {/* <div style={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundImage: `url(${work.img})`, width: '250px', height: '250px'}}></div>
-                <p><b> { work.title } </b></p>
-                <p> { work.date } </p> */}
-
                 <Card className="department__card"  >
                     <div className="department__image" style={{ backgroundImage: `url(${work.img})`}} >
                     </div>
@@ -89,11 +84,7 @@ const ShowDepartment = (props) => {
         return (
             <div className="container-md m-3">
 
-                <h1 className="mb-5 ms-4">{ department.name }</h1>
-                {/* <div style={{ margin: '2rem 25%', backgroundRepeat: 'no-repeat', backgroundImage: `url(${department.img})`, width: '100%', padding: '10rem'}}></div> */}
-
-
-            
+                <h1 className="mb-5 ms-4">{ department.name }</h1>            
                 <div style={ gridContainerStyle }>
                     { artworkCards }  
                 </div>
