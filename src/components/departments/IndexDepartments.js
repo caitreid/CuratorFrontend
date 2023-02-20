@@ -17,10 +17,6 @@ const IndexDepartment = (props) => {
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
-    
-    // display: "grid",
-    // gridTemplateColumns: "repeat(4, 1fr)",
-    
     gap: ".5rem",
     width: '100%'
   }
