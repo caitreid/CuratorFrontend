@@ -13,7 +13,9 @@ const messages = {
 	addArtworkSuccess: 'Nice! You successfully added Artwork to your exhibition',
 	addArtworkFailure: 'Sorry, something went wrong and you did not add any Artwork',
 	removeExhibitionSuccess: 'Successfully removed exhibition',
-	removeExhibitionFailure: 'Failed to remove exhibition.'
+	removeExhibitionFailure: 'Failed to remove exhibition.',
+	addArtworkFailure: 'Failed to add artwork',
+	addArtworkSuccess: 'Successfully added artwork'
 }
 
 module.exports = messages

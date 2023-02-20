@@ -18,13 +18,7 @@ const cardContainerStyle = {
 const IndexExhibition = (props) => {
   // State to store the departments data
   const [exhibitions, setExhibitions] = useState(null);
-  // console.log('this is exhibition', exhibitions)
-  // console.log('this is props', props)
-  
-  // State to store the number of departments to display
-  //const [displayCount, setDisplayCount] = useState(8);
 
-  //Use effect to fetch the departments data from the API
   useEffect(() => {
     getAllExhibitions() 
       .then(res => setExhibitions(res.data.exhibitions))

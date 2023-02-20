@@ -1,8 +1,7 @@
-// import apiUrl from '../apiConfig'
-// import apiArtUrl from '../apiConfigArt'
+import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-// READ -> Index
+// Tap the API to return artworks
 // const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
 const defaultPic = { url: 'public/dickens-lin-zOkAWTyxO60-unsplash.jpg'}
 
@@ -20,16 +19,14 @@ export const getArtworks = (limit, id) => {
             console.log('this is resp', resp)
             const artworks = resp.data.data.map((artwork) => ({
                 id: artwork.id,
-                date: artwork.creation_date,
                 title: artwork.title,
-                department: artwork.department,
+                date: artwork.creation_date,
                 desc: artwork.wall_description,
-                dims: artwork.measurements,
                 artist: artwork.creators.description,
+                dims: artwork.measurements,
                 type: artwork.type,
-//ternary
-                img: artwork.images.web ? artwork.images.web : defaultPic
-
+                department: artwork.department,
+                img: artwork.images.web ? artwork.images.web['url'] : defaultPic
             }));
             return { artworks };
         })
@@ -37,5 +34,17 @@ export const getArtworks = (limit, id) => {
             console.log("Error getting artworks", error);
             throw error;
         });
+}
+
+// Add Artworks to Exhibitions
+//    /artworks/:exhibitionId
+export const addArtwork = (exhibitionId, newArtwork) => {
+
+    console.log('AXIOS newArtwork: ', newArtwork)
+    return axios({
+        url: `${apiUrl}/artworks/${exhibitionId}`,
+        method: 'POST',
+        data: { artworks: newArtwork }
+    })
 }
 
