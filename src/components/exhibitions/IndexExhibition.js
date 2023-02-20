@@ -37,8 +37,8 @@ const IndexExhibition = (props) => {
 
   const { user } = props
 
-  const exhibitionCards = exhibitions.map(exhibition => (
-    <div key={exhibition.id}>
+  const exhibitionCards = exhibitions.map((exhibition, id) => (
+    <div key={id}>
       <Link to={`/exhibitions/${exhibition._id}`} style={{textDecoration: 'none'}}>
           <Card
             className="department__card"
