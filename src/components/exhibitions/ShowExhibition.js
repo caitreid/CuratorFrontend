@@ -91,9 +91,8 @@ const ShowExhibition = (props) => {
     return(
         <div className="container-md">
             <span className="exhibition__text--extitle"> {exhibition.title} </span>
-            <div>{exhibition.startDate}</div>
-            <div>{exhibition.endDate}</div>
-            <img className="exhibition__image" src={exhibition.img}></img>    
+            <div className='mb-2'>{exhibition.startDate} - {exhibition.endDate}</div>
+            <img className="exhibition__image mb-3" src={exhibition.img}></img>    
             <p>{ exhibition.description }</p>
             { 
                 user && user._id === exhibition.owner._id

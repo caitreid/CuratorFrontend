@@ -95,15 +95,13 @@ const exhibitionCards = exhibitions.map(exhibition => (
         </div>
       </div>
     </Card>
-    <div className='ms-4 mb-4'>
-            <div>{exhibition.startDate}</div>
-            <div>{exhibition.endDate}</div>
+    <div className='ms-4 mb-4' style={{ color: 'black' }}>
+            <div>{exhibition.startDate} - {exhibition.endDate}</div>
     <h2
           style={{
             fontWeight: "bold",
             fontSize: "18px",
-            marginBottom: "5px",
-            color: "#000"
+            marginBottom: "5px"
           }}
         >
           {exhibition.title}
