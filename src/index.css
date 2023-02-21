@@ -12550,6 +12550,11 @@ progress {
 .exhibition__text--body p {
   margin: 0;
 }
+.exhibition__cards {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
 
 .department__card {
   margin: 0.5rem;
