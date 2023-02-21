@@ -42,28 +42,20 @@ const IndexExhibition = (props) => {
           <Card
             className="department__card"
               key={exhibition.id}
-              
               style={{
-                margin: 20,
-                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-                borderRadius: "10px",
-                overflow: "hidden",
-                width: '250px',
-                height: '200px'
-
+              margin: '20px 40px',
             }}
           >
-            <div
-              style={{
-                
+            <div 
+                style={{
                 backgroundImage: `url(${exhibition.img})`,
                 backgroundSize: "cover",
                 height: "250px",
                 width: '300px'
-              }}>     
+               }}>     
             </div>
         </Card>
-            <div className='ms-4' style={{ color: 'black' }}>
+            <div className='ms-4' style={{ color: 'black', textAlign: 'center' }}>
                     <div>{exhibition.startDate} - {exhibition.endDate}</div>
             </div>
               <h2 className='ms-4 mb-4'
@@ -71,7 +63,8 @@ const IndexExhibition = (props) => {
                       fontWeight: "bold",
                       fontSize: "18px",
                       marginBottom: "5px",
-                      color: "#000"
+                      color: "#000",
+                      textAlign: 'center'
                     }}
                   >
                     {exhibition.title}

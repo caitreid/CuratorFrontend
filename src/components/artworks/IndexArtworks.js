@@ -46,6 +46,7 @@ const IndexArtworks = (props) => {
     })
 
     const artworkCards = artworks.map((artwork) => (
+        
         <div className="artwork artwork__card" key={ artwork.id }>
             <div className="artwork__image" style={{ backgroundImage: `url(${artwork.img})` }}></div>
            
@@ -56,6 +57,7 @@ const IndexArtworks = (props) => {
                 
             </div>
         </div>
+      
     ))
 
 

@@ -8,6 +8,7 @@ const cardContainerStyle = {
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center'
+    
 }
 
 const AddArtworks = (props) => {
@@ -93,7 +94,8 @@ const AddArtworks = (props) => {
 
     return (
         <>
-            <div className="container-md" style={ cardContainerStyle }>
+
+            <div className="container-md mt-4" style={ cardContainerStyle }>
                 { artworkCards }
             </div>
             <button

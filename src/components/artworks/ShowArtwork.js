@@ -14,11 +14,13 @@ const ShowArtwork = (props) => {
     const { id } = useParams()
 
     console.log('id', id)
-
+    
     useEffect(() => {
+        
 
         getArtworks(1, id)
             .then((res) => setArtwork(res.artworks))
+            
             .catch((err) => {
                 msgAlert({
                     heading: 'Error getting artworks',
