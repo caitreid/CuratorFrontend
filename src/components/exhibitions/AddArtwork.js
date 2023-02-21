@@ -79,6 +79,7 @@ const AddArtworks = (props) => {
                 <p className="artwork__text--title">{ artwork.title }</p>
                 <p>{ artwork.department }</p>   
                 <Button
+                className="button button--outline"
                 artwork={artwork}
                 data={artwork.id}
                 onClick={(e) => onClick(e, artwork)}
@@ -98,10 +99,6 @@ const AddArtworks = (props) => {
             <div className="container-md mt-4" style={ cardContainerStyle }>
                 { artworkCards }
             </div>
-            <button
-                className="button button--filled"
-                onClick={(e) => onClick(e)}
-            >Add Art to Exhibition</button>
         </>
     )
 
