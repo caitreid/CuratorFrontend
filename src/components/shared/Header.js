@@ -4,9 +4,10 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
 
 const linkStyle = {
-    color: 'white',
+    color: 'black',
     textDecoration: 'none',
-	marginRight: '1rem',
+
+	margin: '0 1rem',
 }
 const authenticatedOptions = (
 	<>
@@ -22,10 +23,10 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <NavLink to='sign-up' style={linkStyle}>
+        <NavLink to='sign-up' className='button button--outline' style={linkStyle}>
 			Sign Up
         </NavLink>
-        <NavLink to='sign-in' style={linkStyle}>
+        <NavLink to='sign-in' classname='button button--filled'>
 			Sign In
         </NavLink>
 	</>
@@ -47,7 +48,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar bg='white' className='nav' variant='dark' expand='md'>
 		<Navbar.Brand className="mx-4">
             <Link to='/' style={linkStyle}>
                 Museum API App
