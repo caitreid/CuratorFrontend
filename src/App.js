@@ -65,6 +65,7 @@ const App = () => {
 					<Route path='/departments' element={ <IndexDepartments msgAlert={msgAlert} user={user} />}  />
 					<Route path='/departments/:id' element={ <ShowDepartment msgAlert={msgAlert} user={user} />}  />
 					<Route path='/artworks' element={ <IndexArtworks /> } /> {/* For testing purposes, link to artworks */}
+					<Route path='/artworks/:id' element={ <ShowArtwork />} />
 					
 					<Route
 						path='/sign-up'
