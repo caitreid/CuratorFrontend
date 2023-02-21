@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getArtworks } from "../../api/artworks"
+import { getOneArtwork } from "../../api/artworks"
 import { useParams } from 'react-router-dom'
 
 
@@ -17,9 +17,8 @@ const ShowArtwork = (props) => {
     
     useEffect(() => {
         
-
-        getArtworks(1, id)
-            .then((res) => setArtwork(res.artworks))
+        getOneArtwork(id)
+            .then((res) => setArtwork(res.artwork))
             
             .catch((err) => {
                 msgAlert({
@@ -29,10 +28,10 @@ const ShowArtwork = (props) => {
                 })
                 setError(true)
             })
-    }, [msgAlert])
+    }, [])
 
     console.log('artwork', artwork )
-    console.log('artwork title', artwork )
+    console.log('artwork title', artwork)
 
 
     // if error, display an error
@@ -45,33 +44,22 @@ const ShowArtwork = (props) => {
 
     } else if (artwork.length === 0) {
         return <p>No artworks yet, go add some!</p>
-    }
-
-    let artworkItem;
-
-    if (artwork) {
-        artworkItem = artwork.map(item => 
-            <div key={ item.id }>
-                <div className="artwork__image" style={{ backgroundImage: `url(${ item.img })`}}></div>
-                <div>
-                    <p className="artwork__text--title">{ item.title }</p>
-                    <p>{ item.date }</p>
-                    <p>{ item.department }</p>
-                    <p>{ item.desc }</p>
-                </div>
-            </div>
-        )
-    }
-    
+    }    
 
     return (
 
         <div className="container-md m-4">
-            <h1> Artwork </h1>
-            
-            <div>
-                { artworkItem }
+            <h1> The Artwork </h1>
+            <div key={ artwork.id }>
+                <div className="artwork__image" style={{ backgroundImage: `url(${ artwork.img })`}}></div>
+                <div>
+                    <p className="artwork__text--title">{ artwork.title }</p>
+                    <p>{ artwork.date }</p>
+                    <p>{ artwork.department }</p>
+                    <p>{ artwork.desc }</p>
+                </div>
             </div>
+            
         </div>
     )
 
