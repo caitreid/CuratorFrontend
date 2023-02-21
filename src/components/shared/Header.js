@@ -1,34 +1,34 @@
+import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers'
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
 
 const linkStyle = {
-    color: 'white',
+	color:'black',
     textDecoration: 'none',
-	marginRight: '1rem',
+	margin: '0 1rem',
 }
 const authenticatedOptions = (
 	<>
-
 		<NavLink className="mt-2" to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>
-		<NavLink className="mt-2" to='sign-out' style={linkStyle}>
+		<NavLink className="mt-2" to='sign-out'>
 			Sign Out
 		</NavLink>
 	</>
 )
 
 const unauthenticatedOptions = (
-	<>
-        <NavLink className="mt-2" to='sign-up' style={linkStyle}>
+	<div className='nav__auth'>
+        <NavLink to='sign-up' className="mt-2" className='button button--outline' style={linkStyle}>
 			Sign Up
         </NavLink>
-        <NavLink className="mt-2" to='sign-in' style={linkStyle}>
+        <NavLink to='sign-in' className="mt-2" className='button button--filled' style={linkStyle}>
 			Sign In
         </NavLink>
-	</>
+	</div>
 )
 
 const alwaysOptions = (
@@ -47,8 +47,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand className="mx-4">
+	<Navbar bg='white' className='nav' variant='dark' expand='md'>
+		<Navbar.Brand className="mx-4 logo">
             <Link to='/' style={linkStyle}>
                 Museum API App
             </Link>
