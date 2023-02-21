@@ -60,7 +60,7 @@ const CreateExhibition = (props) => {
     }
 
     return (
-        <div class="container-fluid m-4">
+        <div class="container-fluid col-sm-10 col-md-5 mx-auto mt-5">
             <ExhibitionForm
                 exhibition={exhibition}
                 handleChange={onChange}

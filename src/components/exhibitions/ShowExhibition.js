@@ -116,7 +116,7 @@ const ShowExhibition = (props) => {
                 <div>
                     <p>I created this exhibition</p>
                     <button 
-                        className="btn btn-danger"
+                        className="button btn-danger"
                         onClick={() => deleteExhibition()}
                     >    
                         Delete Exhibition 
@@ -124,7 +124,7 @@ const ShowExhibition = (props) => {
 
                     <button 
                         onClick={() => setEditModalShow(true)}
-                        className='btn btn-success ms-4'>
+                        className='button btn-success ms-4'>
                             Edit Exhibition
                     </button>
 

@@ -99,7 +99,7 @@ const AddArtworks = (props) => {
                 { artworkCards }
             </div>
             <button
-                className="btn btn-success"
+                className="button button--filled"
                 onClick={(e) => onClick(e)}
             >Add Art to Exhibition</button>
         </>

@@ -72,7 +72,7 @@ const ExhibitionForm = (props) => {
                 </Form.Group>
                 <Button 
                     exhibition={exhibition}
-                    className='m-2' 
+                    className='m-2 button button--filled' 
                     type='submit'>
                         Submit
                  </Button>
