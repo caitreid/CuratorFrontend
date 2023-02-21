@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOneExhibition, removeExhibition, updateExhibition } from '../../api/exhibition'
-import { getOneExhibitionArtworks} from '../../api/exhibition'
-import { Link } from 'react-router-dom';
-import { Container, Card } from 'react-bootstrap';
+// import { getOneExhibitionArtworks} from '../../api/exhibition'
+// import { Link } from 'react-router-dom';
+// import { Container, Card } from 'react-bootstrap';
 import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import AddArtworks from './AddArtwork';
@@ -111,12 +111,13 @@ const ShowExhibition = (props) => {
                 { artCards }
             </div>
             { 
-                user && user._id === exhibition.owner._id
+                user
                 ?
                 <div>
                     <p>I created this exhibition</p>
                     <button 
-                        className="button btn-danger"
+                        style={{ backgroundColor: '#a72626', color: 'white'}}
+                        className="button button--outline"
                         onClick={() => deleteExhibition()}
                     >    
                         Delete Exhibition 
@@ -124,7 +125,7 @@ const ShowExhibition = (props) => {
 
                     <button 
                         onClick={() => setEditModalShow(true)}
-                        className='button btn-success ms-4'>
+                        className='button button--filled ms-4'>
                             Edit Exhibition
                     </button>
 
