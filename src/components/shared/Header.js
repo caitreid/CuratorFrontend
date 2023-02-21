@@ -11,10 +11,10 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 
-		<NavLink to='change-password' style={linkStyle}>
+		<NavLink className="mt-2" to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>
-		<NavLink to='sign-out' style={linkStyle}>
+		<NavLink className="mt-2" to='sign-out' style={linkStyle}>
 			Sign Out
 		</NavLink>
 	</>
@@ -22,25 +22,25 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <NavLink to='sign-up' style={linkStyle}>
+        <NavLink className="mt-2" to='sign-up' style={linkStyle}>
 			Sign Up
         </NavLink>
-        <NavLink to='sign-in' style={linkStyle}>
+        <NavLink className="mt-2" to='sign-in' style={linkStyle}>
 			Sign In
         </NavLink>
 	</>
 )
 
 const alwaysOptions = (
-	<>
-		<NavLink to='/exhibitions' style={linkStyle}>
+	< >
+		<NavLink className="mt-2" to='/exhibitions' style={linkStyle}>
 			Exhibitions
 		</NavLink>
-		<NavLink to='/departments' style={linkStyle}>
+		<NavLink className="mt-2" to='/departments' style={linkStyle}>
 			Departments
 		</NavLink>
 
-		<NavLink to='/artworks' style={linkStyle}>
+		<NavLink  className="mt-2" to='/artworks' style={linkStyle}>
 			Artworks
 		</NavLink>
 	</>
@@ -57,7 +57,7 @@ const Header = ({ user }) => (
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text me-4'>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
