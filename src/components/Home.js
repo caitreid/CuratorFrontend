@@ -1,11 +1,12 @@
 import ArtworksIndex from './artworks/IndexArtworks'
 import Container from 'react-bootstrap/Container'
+import IndexArtworks from './artworks/IndexArtworks'
 
 const Home = (props) => {
 
 
 	return (
-		<Container className="m-2" style={{textAlign: 'center'}}>
+		<Container className="m-2 ms-4 mt-4" style={{textAlign: 'left'}}>
 			<h2>View the Collection</h2>
 			<ArtworksIndex msgAlert={ props.msgAlert } />
 		</ Container>

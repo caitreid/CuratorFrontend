@@ -2,8 +2,11 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // Tap the API to return artworks
-const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
+//const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
 // const defaultPic = { url: 'public/dickens-lin-zOkAWTyxO60-unsplash.jpg'}
+// const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
+const defaultPic = { url:'https://www.etsy.com/img/23032371/r/il/2cf2ca/4337929119/il_1588xN.4337929119_si67.jpg' }
+
 
 export const getArtworks = async (limit, id) => {
     const url = `https://openaccess-api.clevelandart.org/api/artworks`

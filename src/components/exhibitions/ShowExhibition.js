@@ -8,6 +8,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import AddArtworks from './AddArtwork';
 import EditExhibitionModal from './EditExhibitionModal';
+import { wrap } from 'module';
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
@@ -94,11 +95,19 @@ const ShowExhibition = (props) => {
 
     return(
         <div className="container-md">
-            <span className="exhibition__text--extitle"> {exhibition.title} </span>
-            <div className='mb-2'>{exhibition.startDate} - {exhibition.endDate}</div>
-            <img className="exhibition__image mb-3" src={exhibition.img}></img>    
-            <p>{ exhibition.description }</p>
-            <div>
+            <img className="exhibition__image mt-3 mb-4" src={exhibition.img}></img>    
+            
+            <div style={{
+                display: 'inline-block',
+                margin: '0 100px'
+            }}>
+            <span className="exhibition__text--extitle"> {exhibition.title} </span><br/>
+            <span className='mb-2'>{exhibition.startDate} - {exhibition.endDate}</span><br/>
+            <span>{ exhibition.description }</span>
+            </div>
+            
+            
+            <div className="exhibition__cards">
                 { artCards }
             </div>
             { 
@@ -107,7 +116,7 @@ const ShowExhibition = (props) => {
                 <div>
                     <p>I created this exhibition</p>
                     <button 
-                        className="btn btn-warning"
+                        className="btn btn-danger"
                         onClick={() => deleteExhibition()}
                     >    
                         Delete Exhibition 
@@ -115,7 +124,7 @@ const ShowExhibition = (props) => {
 
                     <button 
                         onClick={() => setEditModalShow(true)}
-                        className='btn btn-success'>
+                        className='btn btn-success ms-4'>
                             Edit Exhibition
                     </button>
 

@@ -66,6 +66,7 @@ const AddArtworkToExhibition = (props) => {
     }
     
     return (
+        
         <>
         
         <AddArtworkForm 
@@ -74,6 +75,7 @@ const AddArtworkToExhibition = (props) => {
             handleSubmit={onSubmit}
             heading="Add Artwork to your Exhibition!"
         />
+        
         <IndexArtworks/>
         </>
     )

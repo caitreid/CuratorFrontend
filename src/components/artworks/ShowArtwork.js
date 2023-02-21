@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react"
 import { getOneArtwork } from "../../api/artworks"
 import { useParams } from 'react-router-dom'
 
+
+
 const ShowArtwork = (props) => {
+
     const [ artwork, setArtwork ] = useState(null)
     const [error, setError] = useState(false)
     console.log('this is the artworks in index', artwork)
     const { msgAlert } = props
 
     const { id } = useParams()
+
+    console.log('id', id)
     
     useEffect(() => {
         
@@ -25,6 +30,10 @@ const ShowArtwork = (props) => {
             })
     }, [])
 
+    console.log('artwork', artwork )
+    console.log('artwork title', artwork)
+
+
     // if error, display an error
     if (error) {
         return <p>Error!</p>
@@ -38,8 +47,10 @@ const ShowArtwork = (props) => {
     }    
 
     return (
+
         <div className="container-md m-4">
             <h1> The Artwork </h1>
+            <div key={ artwork.id }>
                 <div className="artwork__image" style={{ backgroundImage: `url(${ artwork.img })`}}></div>
                 <div>
                     <p className="artwork__text--title">{ artwork.title }</p>
@@ -47,8 +58,11 @@ const ShowArtwork = (props) => {
                     <p>{ artwork.department }</p>
                     <p>{ artwork.desc }</p>
                 </div>
+            </div>
+            
         </div>
     )
+
 }
 
 export default ShowArtwork;
