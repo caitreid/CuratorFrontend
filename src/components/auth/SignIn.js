@@ -45,12 +45,12 @@ const SignIn = (props) => {
 	}
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+        <div className='row authentication'>
+            <div className='col-sm-10 col-md-5 mx-auto mt-5'>
                 <h3>Sign In</h3>
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label className="my-2">Email address</Form.Label>
                         <Form.Control
                             required
                             type='email'
@@ -61,8 +61,9 @@ const SignIn = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="my-2">Password</Form.Label>
                         <Form.Control
+
                             required
                             name='password'
                             value={password}
@@ -71,7 +72,7 @@ const SignIn = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button className="button button--filled my-4" type='submit'>
                         Submit
                     </Button>
                 </Form>

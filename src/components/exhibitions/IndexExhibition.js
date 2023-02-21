@@ -76,9 +76,11 @@ const IndexExhibition = (props) => {
 
   return (
     <div className='container-md m-4 p-2'>
-        <h2 className='my-2'>Browse by Exhibition</h2>
+
+        <h2 className='my-3'>Browse by Exhibition</h2>
+        <br></br>
         {user && (
-					<Link className='btn btn-dark my-3' to="/exhibitions/create">Create Exhibition +</Link>
+					<Link className='button button--filled my-5' style={{ textDecoration: 'none', margin: '5rem 0'}} to="/exhibitions/create">Create Exhibition +</Link>
 				)} 
         
 

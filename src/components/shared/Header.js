@@ -1,47 +1,46 @@
+import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers'
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
 
 const linkStyle = {
-    color: 'black',
+	color:'black',
     textDecoration: 'none',
-
 	margin: '0 1rem',
 }
 const authenticatedOptions = (
 	<>
-
-		<NavLink to='change-password' style={linkStyle}>
+		<NavLink className="mt-2" to='change-password' style={linkStyle}>
 			Change Password
 		</NavLink>
-		<NavLink to='sign-out' style={linkStyle}>
+		<NavLink className="mt-2" to='sign-out'>
 			Sign Out
 		</NavLink>
 	</>
 )
 
 const unauthenticatedOptions = (
-	<>
-        <NavLink to='sign-up' className='button button--outline' style={linkStyle}>
+	<div className='nav__auth'>
+        <NavLink to='sign-up' className="mt-2" className='button button--outline' style={linkStyle}>
 			Sign Up
         </NavLink>
-        <NavLink to='sign-in' classname='button button--filled'>
+        <NavLink to='sign-in' className="mt-2" className='button button--filled' style={linkStyle}>
 			Sign In
         </NavLink>
-	</>
+	</div>
 )
 
 const alwaysOptions = (
-	<>
-		<NavLink to='/exhibitions' style={linkStyle}>
+	< >
+		<NavLink className="mt-2" to='/exhibitions' style={linkStyle}>
 			Exhibitions
 		</NavLink>
-		<NavLink to='/departments' style={linkStyle}>
+		<NavLink className="mt-2" to='/departments' style={linkStyle}>
 			Departments
 		</NavLink>
 
-		<NavLink to='/artworks' style={linkStyle}>
+		<NavLink  className="mt-2" to='/artworks' style={linkStyle}>
 			Artworks
 		</NavLink>
 	</>
@@ -49,7 +48,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
 	<Navbar bg='white' className='nav' variant='dark' expand='md'>
-		<Navbar.Brand className="mx-4">
+		<Navbar.Brand className="mx-4 logo">
             <Link to='/' style={linkStyle}>
                 Museum API App
             </Link>
@@ -58,7 +57,7 @@ const Header = ({ user }) => (
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text me-4'>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
