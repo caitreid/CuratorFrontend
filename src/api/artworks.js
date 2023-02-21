@@ -2,10 +2,13 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // Tap the API to return artworks
+//const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
+// const defaultPic = { url: 'public/dickens-lin-zOkAWTyxO60-unsplash.jpg'}
 // const defaultPic = { url: 'https://en.wikipedia.org/wiki/Five-pointed_star#/media/File:Five-pointed_star.svg'}
 const defaultPic = { url:'https://www.etsy.com/img/23032371/r/il/2cf2ca/4337929119/il_1588xN.4337929119_si67.jpg' }
 
-export const getArtworks = (limit, id) => {
+
+export const getArtworks = async (limit, id) => {
     const url = `https://openaccess-api.clevelandart.org/api/artworks`
     const params = {
             id: id,
@@ -13,7 +16,7 @@ export const getArtworks = (limit, id) => {
             skip: 18,
             has_image: 1
         };
-        return axios(url, {params})
+        return await axios(url, {params})
         // const resp = axios(url, {params})
         .then((resp) => {
             console.log('this is resp', resp)
@@ -34,6 +37,32 @@ export const getArtworks = (limit, id) => {
             console.log("Error getting artworks", error);
             throw error;
         });
+}
+
+// Show one artwork
+export const getOneArtwork = async (id) => {
+    const url = `https://openaccess-api.clevelandart.org/api/artworks/${id}`
+        return await axios(url)
+        .then((res) => {
+            console.log('this is res in getOneArtwork ==============\n', res)
+            const artwork = {
+                id: res.data.data.id,
+                title: res.data.data.title,
+                date: res.data.data.creation_date,
+                desc: res.data.data.wall_description,
+                artist: res.data.data.creators.description,
+                dims: res.data.data.measurements,
+                type: res.data.data.type,
+                department: res.data.data.department,
+                img: res.data.data.images.web ? res.data.data.images.web['url'] : defaultPic.url
+            }
+            console.log('this is the artwork ============== \n', artwork)
+            return {artwork}
+
+        })
+        .catch(err => {
+            console.log('this is the error in getOneArtwork', err)
+        })
 }
 
 // Add Artworks to Exhibitions

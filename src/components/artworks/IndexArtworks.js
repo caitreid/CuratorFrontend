@@ -53,6 +53,7 @@ const IndexArtworks = (props) => {
             <div className="artwork__text">
                 <p className="artwork__text--title">{ artwork.title }</p>
                 <p>{ artwork.department }</p>   
+                <Link to={ `/artworks/${artwork.id}` }>See {artwork.title}</Link>
                 <Link  to={ `/artworks/${artwork.id}` }>See Artwork</Link>
                 
             </div>
