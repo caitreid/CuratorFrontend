@@ -54,7 +54,7 @@ const EditExhibitionModal = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
-                    message: messages.updateExhibitionSuccess,
+                    message: 'Sucessfully updated exhibition.',
                     variant: 'success'
                 })
             })
@@ -66,7 +66,7 @@ const EditExhibitionModal = (props) => {
             .catch(() => {
                 msgAlert({
                     heading: 'Oh No!',
-                    message: messages.updateExhibitionFailure,
+                    message: 'Failed to update exhibition',
                     variant: 'danger'
                 })
             })

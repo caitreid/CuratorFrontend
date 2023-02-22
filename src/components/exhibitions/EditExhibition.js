@@ -38,14 +38,14 @@ const EditExhibition = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
-                    message: editExhibitionSuccess,
+                    message: 'Successfully edited exhibition',
                     variant: 'success'
                 })
             })
             .catch(() => {
                 msgAlert({
                     heading: 'Uh oh!',
-                    message: editExhibitionFailure,
+                    message: 'Failed to edi exhibition',
                     variant: 'danger'
                 })
             })

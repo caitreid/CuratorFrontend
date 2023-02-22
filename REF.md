@@ -146,7 +146,7 @@ signIn(credentials)
     .then(() =>
         msgAlert({
             heading: 'Sign In Success',
-            message: messages.signInSuccess,
+            message: 'Signed in successfully,
             variant: 'success',
         })
     )
@@ -156,7 +156,7 @@ signIn(credentials)
         setPassword('')
         msgAlert({
             heading: 'Sign In Failed with error: ' + error.message,
-            message: messages.signInFailure,
+            message: 'Sign in failure,
             variant: 'danger',
         })
     })
