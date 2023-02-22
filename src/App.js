@@ -30,10 +30,7 @@ import CreateExhibition from './components/exhibitions/CreateExhibition'
 const App = () => {
 
   const [user, setUser] = useState(false)
-  const [exhibition, setExhibition] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-
-
   
   const clearUser = () => {
     console.log('clear user ran')

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { Link } from 'react-router-dom'
 import { addArtwork, getArtworks } from "../../api/artworks"
 import { Button } from "react-bootstrap"
-import { addArtworkSuccess, addArtworkFailure } from '../shared/AutoDismissAlert/messages'
+
 
 const cardContainerStyle = {
     display: 'flex',
@@ -14,8 +13,7 @@ const cardContainerStyle = {
 const AddArtworks = (props) => {
 
     const [ artworks, setArtworks ] = useState(null)
-    const [error, setError] = useState(false)
-    const [ artArray, setArtArray] = useState([])   
+    const [error, setError] = useState(false)  
     const { msgAlert, exhibition, triggerRefresh } = props
 
     console.log('props on AddArtworks', props)

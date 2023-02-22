@@ -1,4 +1,3 @@
-import { toBePartiallyChecked } from '@testing-library/jest-dom/dist/matchers'
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -22,10 +21,10 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<div className='nav__auth'>
-        <NavLink to='sign-up' className="mt-2" className='button button--outline' style={linkStyle}>
+        <NavLink to='sign-up' className="mt-2 button button--outline" style={linkStyle}>
 			Sign Up
         </NavLink>
-        <NavLink to='sign-in' className="mt-2" className='button button--filled' style={linkStyle}>
+        <NavLink to='sign-in' className="mt-2 button button--filled" style={linkStyle}>
 			Sign In
         </NavLink>
 	</div>

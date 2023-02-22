@@ -28,7 +28,7 @@ const ShowArtwork = (props) => {
                 })
                 setError(true)
             })
-    }, [])
+    },)
 
     console.log('artwork', artwork )
     console.log('artwork title', artwork)

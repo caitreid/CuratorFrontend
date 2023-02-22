@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllExhibitions } from '../../api/exhibition'
 import Card from 'react-bootstrap/Card'
-import { Link, Route, Switch } from 'react-router-dom'
-import ShowExhibition from './ShowExhibition'
-
+import { Link } from 'react-router-dom'
 
 
 const cardContainerStyle = {
@@ -25,13 +23,21 @@ const IndexExhibition = (props) => {
   }, []); // Second argument of an empty array means this useEffect will only run once on component mount
 
 
-
   if (!exhibitions) {
     // if no data is loaded yet, display 'loading'
     return <p>Loading...</p>
   } else if (exhibitions.length === 0) {
     // otherwise if there ARE no exhibitions, display that message
-    return <p>No exhibitions yet, go add some!</p>
+    
+  return (
+    <div className="container-fluid m-4">
+      <p>
+        No exhibitions yet, go add some!
+      </p>
+      <br></br>
+      <Link className='button button--filled my-5' style={{ textDecoration: 'none', margin: '5rem 0'}} to="/exhibitions/create">Create Exhibition +</Link>
+    </div>
+    )
   }
 
   const { user } = props
