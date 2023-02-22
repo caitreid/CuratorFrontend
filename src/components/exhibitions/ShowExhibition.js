@@ -78,7 +78,7 @@ const ShowExhibition = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Success',
-                    message: messages.removeExhibitionSuccess,
+                    message: 'Successfully deleted exhibition',
                     variant: 'success'
                 })
             })
@@ -87,7 +87,7 @@ const ShowExhibition = (props) => {
             .catch(err => {
                 msgAlert({
                     heading: 'Error',
-                    message: messages.removeExhibitionFailure,
+                    message: 'Failed to delete exhibition',
                     variant: 'danger'
                 })
             })

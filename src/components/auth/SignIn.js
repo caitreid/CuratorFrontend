@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { signIn } from '../../api/auth'
-import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -28,7 +27,7 @@ const SignIn = (props) => {
 			.then(() =>
 				msgAlert({
 					heading: 'Sign In Success',
-					message: messages.signInSuccess,
+					message: 'Sign in success',
 					variant: 'success',
 				})
 			)
@@ -38,7 +37,7 @@ const SignIn = (props) => {
                 setPassword('')
 				msgAlert({
 					heading: 'Sign In Failed with error: ' + error.message,
-					message: messages.signInFailure,
+					message: 'Sign in failure',
 					variant: 'danger',
 				})
 			})

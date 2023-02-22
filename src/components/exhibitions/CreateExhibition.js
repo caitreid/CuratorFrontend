@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import ExhibitionForm from '../shared/ExhibitionForm'
 import { useNavigate } from 'react-router-dom'
 import { createExhibition } from '../../api/exhibition'
-import { createExhibitionSuccess, createExhibitionFailure } from '../shared/AutoDismissAlert/messages'
 
 
 const CreateExhibition = (props) => {
@@ -46,14 +45,14 @@ const CreateExhibition = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Yeah!',
-                    message: createExhibitionSuccess,
+                    message: 'Successfully created exhibition',
                     variant: 'success'
                 })
             })
             .catch(() => {
                 msgAlert({
                     heading: 'Uh oh!',
-                    message: createExhibitionFailure,
+                    message: 'Failed to create exhibition',
                     variant: 'danger'
                 })
             })
