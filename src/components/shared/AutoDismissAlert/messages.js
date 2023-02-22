@@ -14,7 +14,6 @@ const messages = {
 	addArtworkFailure: 'Sorry, something went wrong and you did not add any Artwork',
 	removeExhibitionSuccess: 'Successfully removed exhibition',
 	removeExhibitionFailure: 'Failed to remove exhibition.',
-	addArtworkFailure: 'Failed to add artwork',
 	addArtworkSuccess: 'Successfully added artwork',
 	updateExhibitionSuccess: 'Successfully updated exhibition',
 	updateExhibitionFailure: 'Failed to update exhibition'
