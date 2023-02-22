@@ -4,7 +4,7 @@ import { getOneExhibition, removeExhibition, updateExhibition } from '../../api/
 // import { getOneExhibitionArtworks} from '../../api/exhibition'
 // import { Link } from 'react-router-dom';
 // import { Container, Card } from 'react-bootstrap';
-import messages from '../shared/AutoDismissAlert/messages'
+// import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import AddArtworks from './AddArtwork';
 import EditExhibitionModal from './EditExhibitionModal';
