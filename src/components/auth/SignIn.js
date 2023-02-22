@@ -36,7 +36,7 @@ const SignIn = (props) => {
                 setEmail('')
                 setPassword('')
 				msgAlert({
-					heading: 'Sign In Failed with error: ' + error.message,
+					heading: 'Sign In Failed',
 					message: 'Sign in failure',
 					variant: 'danger',
 				})
