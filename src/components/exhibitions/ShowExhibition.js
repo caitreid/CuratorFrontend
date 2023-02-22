@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getOneExhibition, removeExhibition, updateExhibition } from '../../api/exhibition'
-// import { getOneExhibitionArtworks} from '../../api/exhibition'
-// import { Link } from 'react-router-dom';
-// import { Container, Card } from 'react-bootstrap';
-// import messages from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import AddArtworks from './AddArtwork';
 import EditExhibitionModal from './EditExhibitionModal';
-import { wrap } from 'module';
+
 
 const ShowExhibition = (props) => {
     const [exhibition, setExhibition] = useState(null)
@@ -18,9 +14,8 @@ const ShowExhibition = (props) => {
     console.log('user in ShowExhibition props', user)
     
     const [editModalShow, setEditModalShow] = useState(false)
-    const [exhibitionModalShow, setExhibitionModalShow] = useState(false)
 
-    console.log('this is exhibition in ShowExhibition props', exhibition)
+    // console.log('this is exhibition in ShowExhibition props', exhibition)
     
     const navigate = useNavigate()
 

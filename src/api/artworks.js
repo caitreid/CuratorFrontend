@@ -17,9 +17,7 @@ export const getArtworks = async (limit, id) => {
             has_image: 1
         };
         return await axios(url, {params})
-        // const resp = axios(url, {params})
         .then((resp) => {
-            console.log('this is resp', resp)
             const artworks = resp.data.data.map((artwork) => ({
                 id: artwork.id,
                 title: artwork.title,

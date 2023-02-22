@@ -28,7 +28,7 @@ const IndexArtworks = (props) => {
                 })
                 setError(true)
             })
-    }, [])
+    },)
 
     // if error, display an error
     if (error) {
@@ -41,9 +41,6 @@ const IndexArtworks = (props) => {
     } else if (artworks.length === 0) {
         return <p>No artworkss yet, go add some!</p>
     }
-    artworks.forEach(art => {
-        console.log('this is art.img', art.img)
-    })
 
     const artworkCards = artworks.map((artwork) => (
         

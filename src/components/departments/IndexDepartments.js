@@ -27,7 +27,11 @@ const IndexDepartment = (props) => {
 
   } else if (departments.length === 0) {
 
-    return <p>No departments yet, go add some!</p>
+    return(
+      <div className="container-fluid m-4">
+        <p>No departments yet, go add some!</p>
+      </div>
+    )
 
   }
   // Render cards for each department

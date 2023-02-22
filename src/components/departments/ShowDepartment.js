@@ -8,16 +8,10 @@ import Card from 'react-bootstrap/Card'
 
 const ShowDepartment = (props) => {
     const [department, setDepartment] = useState(null)
-
     const [artworks, setArtworks] = useState(null)
     const { id } = useParams()
     const [error, setError] = useState(false)
     const { msgAlert } = props
-
-    const cardContainerStyle = {
-        display: 'flex',
-        flexFlow: 'row wrap'
-    }
 
     const gridContainerStyle = {
         display: "grid",
@@ -32,7 +26,7 @@ const ShowDepartment = (props) => {
             .then(res => setDepartment(res.data.department))
             .catch(err => console.log('this is err from ShowDepartment: ', err))
 
-    }, [])
+    },)
     
     if (department) {
         

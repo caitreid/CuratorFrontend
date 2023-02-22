@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import ExhibitionForm from '../shared/ExhibitionForm'
-// import messages from '../shared/AutoDismissAlert/messages'
+
 import { updateExhibition } from '../../api/exhibition'
 
 const EditExhibitionModal = (props) => {
