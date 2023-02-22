@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { signUp, signIn } from '../../api/auth'
-import messages from '../shared/AutoDismissAlert/messages'
+// import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -29,7 +29,7 @@ const SignUp = (props) => {
 			.then(() =>
 				msgAlert({
 					heading: 'Sign Up Success',
-					message: messages.signUpSuccess,
+					message: 'Sign up Success',
 					variant: 'success',
 				})
 			)
@@ -40,7 +40,7 @@ const SignUp = (props) => {
                 setPasswordConfirmation('')
 				msgAlert({
 					heading: 'Sign Up Failed with error: ' + error.message,
-					message: messages.signUpFailure,
+					message: 'Sign up failed',
 					variant: 'danger',
 				})
 			})

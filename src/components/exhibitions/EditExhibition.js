@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import ExhibitionForm from '../shared/ExhibitionForm'
-import { editExhibitionSuccess, editExhibitionFailure } from '../shared/AutoDismissAlert/messages'
+// import { editExhibitionSuccess, editExhibitionFailure } from '../shared/AutoDismissAlert/messages'
 
 
 
