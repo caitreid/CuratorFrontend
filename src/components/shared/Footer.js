@@ -26,7 +26,7 @@ const Footer = () => (
     <div className='footer'>
         
             <Link to='/' style={linkStyle}>
-                Gallerie
+                Curator
             </Link>
 
             {alwaysOptions}
