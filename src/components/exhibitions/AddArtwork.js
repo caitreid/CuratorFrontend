@@ -64,7 +64,7 @@ const AddArtworks = (props) => {
             .catch(() => {
                 msgAlert({
                     heading: 'Oh No!',
-                    message: addArtworkFailure,
+                    message: 'Failed to add Artwork',
                     variant: 'danger'
                 })
             })
