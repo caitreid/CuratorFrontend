@@ -49,7 +49,7 @@ const Header = ({ user }) => (
 	<Navbar bg='white' className='nav' variant='dark' expand='md'>
 		<Navbar.Brand className="mx-4 logo">
             <Link to='/' style={linkStyle}>
-                Gallerie
+                Curator
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
