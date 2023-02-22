@@ -55,7 +55,7 @@ const AddArtworks = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
-                    message: addArtworkSuccess,
+                    message: 'Sucessfully added artwork',
                     variant: 'success'
                 })
             })
